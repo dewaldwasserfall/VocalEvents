@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Adds the current date to the collection and then adds 1 to the currentdate</description>
+        <name>Add_CurrentDate_to_collection</name>
+        <label>Add CurrentDate to collection</label>
+        <locationX>396</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>DateRange</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>CurrentDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>CurrentDate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Is_Date_Range_Complete</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Adds the End Date to the Range and adds 1 to the CurrentDate</description>
+        <name>Add_End_Date_to_Range</name>
+        <label>Add End Date to Range</label>
+        <locationX>308</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>CurrentDate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DateRange</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>IN_EndDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Is_Date_Range_Complete</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Adds the Starting Date to the Date Rage</description>
+        <name>Add_Starting_Date_to_Range</name>
+        <label>Add Starting Date to Range</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignmentItems>
+            <assignToReference>DateRange</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>IN_StartDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Does_StartDate_EndDate</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Counts the dates in the range</description>
+        <name>Count_Dates</name>
+        <label>Count Dates</label>
+        <locationX>176</locationX>
+        <locationY>1016</locationY>
+        <assignmentItems>
+            <assignToReference>OUT_DateCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>DateRange</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <collectionProcessors>
+        <description>Sorts the dates from earliest to latest</description>
+        <name>Sort_Dates</name>
+        <elementSubtype>SortCollectionProcessor</elementSubtype>
+        <label>Sort Dates</label>
+        <locationX>176</locationX>
+        <locationY>908</locationY>
+        <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
+        <collectionReference>DateRange</collectionReference>
+        <connector>
+            <targetReference>Count_Dates</targetReference>
+        </connector>
+        <sortOptions>
+            <doesPutEmptyStringAndNullFirst>false</doesPutEmptyStringAndNullFirst>
+            <sortOrder>Asc</sortOrder>
+        </sortOptions>
+    </collectionProcessors>
+    <decisions>
+        <description>Checks if the start date is the same as the end date</description>
+        <name>Does_StartDate_EndDate</name>
+        <label>Does StartDate = EndDate ?</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Add_End_Date_to_Range</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>StartDate != EndDate</defaultConnectorLabel>
+        <rules>
+            <name>StartDate_EndDate</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IN_StartDate</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>IN_EndDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Sort_Dates</targetReference>
+            </connector>
+            <label>StartDate = EndDate</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Date_Range_Complete</name>
+        <label>Is Date Range Complete ?</label>
+        <locationX>308</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>Add_CurrentDate_to_collection</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not complete</defaultConnectorLabel>
+        <rules>
+            <name>Date_Range_Complete</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CurrentDate</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>IN_EndDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Sort_Dates</targetReference>
+            </connector>
+            <label>Date Range Complete</label>
+        </rules>
+    </decisions>
+    <description>A Subflow used to build a date range for shows that range over more than one Date</description>
+    <environments>Default</environments>
+    <interviewLabel>Subflow - Build Date Range {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Subflow - Build Date Range</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Add_Starting_Date_to_Range</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>CurrentDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>IN_StartDate</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>DateRange</name>
+        <dataType>Date</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>IN_EndDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>IN_StartDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>The amount of dates in the collection</description>
+        <name>OUT_DateCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

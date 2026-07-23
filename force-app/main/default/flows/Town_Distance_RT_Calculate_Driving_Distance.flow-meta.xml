@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Gets the driving distance between the two points</description>
+        <name>Get_Driving_Distance</name>
+        <label>Get Driving Distance</label>
+        <locationX>308</locationX>
+        <locationY>276</locationY>
+        <actionName>BingMapsService</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Update_Driving_Distance</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>destLat</name>
+            <value>
+                <elementReference>$Record.Destination__r.Geolocation__Latitude__s</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>destLng</name>
+            <value>
+                <elementReference>$Record.Destination__r.Geolocation__Longitude__s</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>originLat</name>
+            <value>
+                <elementReference>$Record.Starting_Town__r.Geolocation__Latitude__s</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>originLng</name>
+            <value>
+                <elementReference>$Record.Starting_Town__r.Geolocation__Longitude__s</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>BingMapsService</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Calls a Bing Integration to calculate the driving distance between 2 points</description>
+    <environments>Default</environments>
+    <interviewLabel>Town Distance - RT - Calculate Driving Distance {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Town Distance - RT - Calculate Driving Distance</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Updates the driving distance field</description>
+        <name>Update_Driving_Distance</name>
+        <label>Update Driving Distance</label>
+        <locationX>308</locationX>
+        <locationY>384</locationY>
+        <inputAssignments>
+            <field>Driving_Distance_Km__c</field>
+            <value>
+                <elementReference>Get_Driving_Distance.distance</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <filterFormula>OR({!$Record.Destination__r.Name}=&apos;Pretoria&apos;,{!$Record.Starting_Town__r.Name}=&apos;Pretoria&apos;,{!$Record.Destination__r.Name}=&apos;Cape Town&apos;,{!$Record.Starting_Town__r.Name}=&apos;Cape Town&apos;,{!$Record.Destination__r.Name}=&apos;Parys&apos;,{!$Record.Starting_Town__r.Name}=&apos;Parys&apos;)</filterFormula>
+        <object>Town_Distance__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Get_Driving_Distance</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>varDistance</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

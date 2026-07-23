@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Technical_Extras__c</fullName>
+    <inlineHelpText>A roll-up of all the Technical Extras</inlineHelpText>
+    <label>Total Technical Extras</label>
+    <summarizedField>Extra_Line_Item__c.Price__c</summarizedField>
+    <summaryFilterItems>
+        <field>Extra_Line_Item__c.Type__c</field>
+        <operation>equals</operation>
+        <value>Technical</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Extra_Line_Item__c.Quick_Quote_Line_Item__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

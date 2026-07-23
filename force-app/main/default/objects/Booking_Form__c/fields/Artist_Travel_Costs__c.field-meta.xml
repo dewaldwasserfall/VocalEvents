@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Artist_Travel_Costs__c</fullName>
+    <description>The Travel Costs incurred for the performance. If the travelling distance is less than 100km, this fee is waived. Fee is rounded down to the nearest 10</description>
+    <formula>IF(Travel_fee_not_Applicable__c,0,
+(10 * FLOOR(
+    IF(
+        ISPICKVAL(Travelling_By__c, &apos;Road&apos;),
+        IF(
+            Travelling_Distance__c &gt; 100,
+            Travelling_Distance__c * Artist__r.Travel_Fee__c,
+            0
+        ),
+        Flights__r.Total_Price__c/2
+    ) / 10
+))*2)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Artist Travel Costs</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

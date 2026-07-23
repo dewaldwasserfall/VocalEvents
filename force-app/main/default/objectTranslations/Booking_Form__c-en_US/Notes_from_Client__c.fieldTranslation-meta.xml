@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Notes supplied by the client when they filled in the booking request --></help>
+    <label><!-- Notes from Client --></label>
+    <name>Notes_from_Client__c</name>
+</CustomFieldTranslation>

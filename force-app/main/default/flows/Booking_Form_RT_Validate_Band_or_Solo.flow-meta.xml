@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Updates the filed to band</description>
+        <name>Update_to_band</name>
+        <label>Update to band</label>
+        <locationX>578</locationX>
+        <locationY>611</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Band_or_Solo__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Band</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Updates the booking form to solo</description>
+        <name>Update_to_solo</name>
+        <label>Update to solo</label>
+        <locationX>138</locationX>
+        <locationY>611</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Band_or_Solo__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Solo</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Checks if the artist has band fee definitions</description>
+        <name>Does_artist_have_Band_definitions</name>
+        <label>Does artist have Band definitions</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <defaultConnector>
+            <targetReference>Update_to_solo</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Band</defaultConnectorLabel>
+        <rules>
+            <name>Has_Band</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Active_Band_Fee_Definitions.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Has Band</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks if the artist has solo definitions</description>
+        <name>Does_artist_have_solo_defintions</name>
+        <label>Does artist have solo defintions</label>
+        <locationX>490</locationX>
+        <locationY>503</locationY>
+        <defaultConnector>
+            <targetReference>Update_to_band</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Solo</defaultConnectorLabel>
+        <rules>
+            <name>Has_Solo</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Active_Solo_Fee_Definitions.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Has Solo</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks if Band or Solo was chosen</description>
+        <name>Which_format_is_chosen</name>
+        <label>Which format is chosen</label>
+        <locationX>446</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>None</defaultConnectorLabel>
+        <rules>
+            <name>Band</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Band_or_Solo__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Band</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Active_Band_Fee_Definitions</targetReference>
+            </connector>
+            <label>Band</label>
+        </rules>
+        <rules>
+            <name>Solo</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Band_or_Solo__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Solo</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Active_Solo_Fee_Definitions</targetReference>
+            </connector>
+            <label>Solo</label>
+        </rules>
+    </decisions>
+    <description>Checks if an artist has band or solo fee definitions when the field is changed</description>
+    <environments>Default</environments>
+    <interviewLabel>Booking Form - RT - Validate Band or Solo {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Booking Form - RT - Validate Band or Solo</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the active band fee definitions for the Artist</description>
+        <name>Get_Active_Band_Fee_Definitions</name>
+        <label>Get Active Band Fee Definitions</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Does_artist_have_Band_definitions</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Band_or_Solo__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Band</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Artist__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Artist__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Artist_Fee_Definition__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the active solo fee definitions for the Artist</description>
+        <name>Get_Active_Solo_Fee_Definitions</name>
+        <label>Get Active Solo Fee Definitions</label>
+        <locationX>490</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Does_artist_have_solo_defintions</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Band_or_Solo__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Solo</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Artist__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Artist__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Artist_Fee_Definition__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Which_format_is_chosen</targetReference>
+        </connector>
+        <filterFormula>OR(ISNEW(),ISCHANGED({!$Record.Band_or_Solo__c}))</filterFormula>
+        <object>Booking_Form__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

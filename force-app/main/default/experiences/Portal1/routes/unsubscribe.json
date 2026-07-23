@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8e5950a8-0b94-412f-aea9-fedce2196024",
+  "appPageId" : "0a72e0b0-bcb0-4d19-8694-7b628c1f2188",
+  "configurationTags" : [ ],
+  "devName" : "unsubscribe__c",
+  "id" : "270a0e93-0403-42b0-85f1-13354fbc2dec",
+  "label" : "Unsubscribe",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-unsubscribe",
+  "type" : "route",
+  "urlPrefix" : "unsubscribe"
+}

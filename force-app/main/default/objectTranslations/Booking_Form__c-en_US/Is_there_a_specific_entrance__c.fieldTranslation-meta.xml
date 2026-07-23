@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Is there a specific gate / entrance the artist and crew need to use ? --></help>
+    <label><!-- Is there a specific entrance ? --></label>
+    <name>Is_there_a_specific_entrance__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,19 @@
+<aura:component controller="ContentDocumentController" implements="force:hasRecordId,flexipage:availableForRecordHome,force:appHostable" access="global">
+    <!-- The recordId is automatically provided when this component is placed on a record page -->
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="contentDocument" type="Object" />
+    <aura:attribute name="hasDocument" type="Boolean" default="false" />
+
+    <!-- Handler to trigger action when component is initialized -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <!-- Display the image if available -->
+    <aura:if isTrue="{!v.hasDocument}">
+        <div class="slds-box">
+            <img src="{!'/sfc/servlet.shepherd/version/download/' + v.contentDocument.LatestPublishedVersionId}" alt="Callsheet Image" />
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!not(v.hasDocument)}">
+        <p>No callsheet image found.</p>
+    </aura:if>
+</aura:component>

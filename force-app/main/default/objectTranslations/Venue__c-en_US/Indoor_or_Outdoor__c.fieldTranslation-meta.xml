@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Indoor or Outdoor --></label>
+    <name>Indoor_or_Outdoor__c</name>
+    <picklistValues>
+        <masterLabel>Binne</masterLabel>
+        <translation><!-- Binne --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Builelug</masterLabel>
+        <translation><!-- Builelug --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tent</masterLabel>
+        <translation><!-- Tent --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

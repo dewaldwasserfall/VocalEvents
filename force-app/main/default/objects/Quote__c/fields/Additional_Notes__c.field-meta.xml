@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Additional_Notes__c</fullName>
+    <defaultValue>&quot;Let asb op dat alle fooie BTW uitsluit. Fooie hierbo dien slegs as riglyne tov verskillende opsies wat die kunstenaars aanbied. Fooie is onderhewig aan verandering en is slegs geldig vir 3 werksdae. Om ‘n datum te bevestig en om een of meer kunstenaars te bespreek teken asb die kwotasie hieronder vir verdere stappe. Deur die dokument te onderteken erken u slegs die ontvangs van fooie en dien die dokument nie as bindende kontrak tussen die partye nie.&quot;</defaultValue>
+    <description>U het &apos;n kwotasie ontvang vanaf Vocal Events.
+
+Let asb op dat hierdie dokument nie &apos;n kontrak is nie en slegs &apos;n indikasie van fooie is.
+
+Kwotasies is slegs geldig vir 3 dae en fooie is onderhewig aan verandering.
+
+Datums word nie gewaarborg alvorens &apos;n getekende kontrak en deposito ontvang is nie.
+. 
+Druk asb op die knoppie hieronder om die kwotasie te sien.</description>
+    <inlineHelpText>Additional notes to be added to the quote</inlineHelpText>
+    <label>Additional Notes</label>
+    <length>131072</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

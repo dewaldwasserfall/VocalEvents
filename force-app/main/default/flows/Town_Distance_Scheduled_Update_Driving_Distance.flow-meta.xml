@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the Update DateTime field to trigger the Bing Callout</description>
+        <name>Set_Update_DateTime</name>
+        <label>Set Update DateTime</label>
+        <locationX>138</locationX>
+        <locationY>576</locationY>
+        <assignmentItems>
+            <assignToReference>varTownDistance.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_over_remaining_records.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varTownDistance.UpdateDateTime__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>colTwnDistance</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>varTownDistance</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_over_remaining_records</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Checks if records were found</description>
+        <name>Were_records_found</name>
+        <label>Were records found ?</label>
+        <locationX>182</locationX>
+        <locationY>360</locationY>
+        <defaultConnectorLabel>End</defaultConnectorLabel>
+        <rules>
+            <name>Records_found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Town_Distances</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_over_remaining_records</targetReference>
+            </connector>
+            <label>Records found</label>
+        </rules>
+    </decisions>
+    <description>Runs daily to update driving distance in km in batches of 100</description>
+    <environments>Default</environments>
+    <interviewLabel>Town Distance - Scheduled - Update Driving Distance {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Town Distance - Scheduled - Update Driving Distance</label>
+    <loops>
+        <description>Loops over the remaining records</description>
+        <name>Loop_over_remaining_records</name>
+        <label>Loop over remaining records</label>
+        <locationX>50</locationX>
+        <locationY>468</locationY>
+        <collectionReference>Get_Town_Distances</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Set_Update_DateTime</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_remaining_records</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets Town Distance Records with no Distance in Km</description>
+        <name>Get_Town_Distances</name>
+        <label>Get Town Distances</label>
+        <locationX>182</locationX>
+        <locationY>252</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Were_records_found</targetReference>
+        </connector>
+        <filterLogic>(1 OR 2) AND 3 AND 4 AND 5</filterLogic>
+        <filters>
+            <field>Driving_Distance_Km__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Driving_Distance_Km__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Start_End__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Destination_Province__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Outside of South Africa</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Starting_Town_Province__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Outside of South Africa</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <limit>
+            <numberValue>100.0</numberValue>
+        </limit>
+        <object>Town_Distance__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_remaining_records</name>
+        <label>Update remaining records</label>
+        <locationX>50</locationX>
+        <locationY>768</locationY>
+        <inputReference>colTwnDistance</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Town_Distances</targetReference>
+        </connector>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2024-05-15</startDate>
+            <startTime>20:45:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>colTownDistances</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Town_Distance__c</objectType>
+    </variables>
+    <variables>
+        <name>colTwnDistance</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Town_Distance__c</objectType>
+    </variables>
+    <variables>
+        <name>varTownDistance</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Town_Distance__c</objectType>
+    </variables>
+</Flow>

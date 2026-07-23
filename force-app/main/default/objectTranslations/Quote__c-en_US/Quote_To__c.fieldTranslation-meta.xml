@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The contactperson receiving the quote --></help>
+    <label><!-- Quote To --></label>
+    <lookupFilter>
+        <errorMessage><!-- Please add or create an organiser --></errorMessage>
+    </lookupFilter>
+    <name>Quote_To__c</name>
+    <relationshipLabel><!-- Quotes --></relationshipLabel>
+</CustomFieldTranslation>

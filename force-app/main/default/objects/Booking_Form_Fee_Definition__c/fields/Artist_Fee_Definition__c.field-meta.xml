@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Artist_Fee_Definition__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>The fee that the artist is booked at for this date</inlineHelpText>
+    <label>Artist Fee Definition</label>
+    <referenceTo>Artist_Fee_Definition__c</referenceTo>
+    <relationshipLabel>Booking Form Fee Definitions</relationshipLabel>
+    <relationshipName>Booking_Form_Fee_Definitions</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

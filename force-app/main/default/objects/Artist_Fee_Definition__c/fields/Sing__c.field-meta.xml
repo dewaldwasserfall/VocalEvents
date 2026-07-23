@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sing__c</fullName>
+    <defaultValue>true</defaultValue>
+    <inlineHelpText>Check this box if the performance type is singing</inlineHelpText>
+    <label>Sing</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

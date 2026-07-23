@@ -1,0 +1,71 @@
+{
+  "appPageId" : "0a72e0b0-bcb0-4d19-8694-7b628c1f2188",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "0a756bec-6c41-433e-b4d9-58fcf5f7b0fc",
+  "label" : "Booking Form",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 60,
+        "sectionConfig" : {
+          "UUID" : "dc9dfb73-8360-4c34-b908-4c8865447831",
+          "columns" : [ {
+            "UUID" : "a83e8aac-3d62-455e-b54c-bfe3afad8f7b",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 400
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "dc9dfb73-8360-4c34-b908-4c8865447831",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "flowArguments" : "[{\"label\":\"varQuoteId\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!varQuoteId}\"}]",
+            "flowName" : "Booking_Form_Screenflow_Quick_Create_Booking_Form"
+          },
+          "componentName" : "forceCommunity:flowCommunity",
+          "id" : "d187d0dc-abdc-4ea3-ba69-b2c860381a7e",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "a83e8aac-3d62-455e-b54c-bfe3afad8f7b",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "82d5722a-209b-45a0-a61e-73fcce4bdf9e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Booking Form"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "b43ababe-0ae6-4e9a-90b4-5437213df00b",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "cebcda64-adc2-4a9b-bfb2-9607cd5e15f1",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-booking-form"
+}

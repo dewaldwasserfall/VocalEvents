@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Deposit is due 5 Business Days after the contract is signed. If no contract has been signed, this date is 7 calendar days in the future --></help>
+    <label><!-- Deposit Due by --></label>
+    <name>Deposit_Due_by__c</name>
+</CustomFieldTranslation>

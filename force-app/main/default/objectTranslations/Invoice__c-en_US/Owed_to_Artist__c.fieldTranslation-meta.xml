@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Amount Payable to the Artist --></help>
+    <label><!-- Owed to Artist --></label>
+    <name>Owed_to_Artist__c</name>
+</CustomFieldTranslation>

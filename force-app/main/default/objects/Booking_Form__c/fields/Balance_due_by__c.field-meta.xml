@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Balance_due_by__c</fullName>
+    <formula>CASE(
+   MOD(Date_of_Performance__c - DATE(1985, 6, 24), 7),
+   0, Date_of_Performance__c - 7 - FLOOR((5 + 7 - 1) / 5) * 2,
+   1, Date_of_Performance__c - 7 - FLOOR((6 + 7) / 5) * 2,
+   2, Date_of_Performance__c - 7 - FLOOR((0 + 7) / 5) * 2,
+   3, Date_of_Performance__c - 7 - FLOOR((1 + 7) / 5) * 2,
+   4, Date_of_Performance__c - 7 - FLOOR((2 + 7) / 5) * 2,
+   5, Date_of_Performance__c - 7 - FLOOR((3 + 7) / 5) * 2,
+   6, Date_of_Performance__c - IF(7 &gt; 0, 1, 0) - 7 - FLOOR((4 + 7) / 5) * 2,
+   null
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Balance is due 7 Business Days before the Performance</inlineHelpText>
+    <label>Balance due by</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

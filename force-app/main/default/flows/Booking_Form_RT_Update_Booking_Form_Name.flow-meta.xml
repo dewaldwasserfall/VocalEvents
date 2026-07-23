@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Updates the name of the Booking Form</description>
+        <name>Update_Booking_Form_Name</name>
+        <label>Update Booking Form Name</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fmName</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Names the Booking form on Create or Update</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fmExtraDate</name>
+        <dataType>String</dataType>
+        <expression>IF({!$Record.Date_of_Performance__c}!={!$Record.End_Date__c},&quot; --&gt; &quot;&amp;TEXT(DAY({!$Record.End_Date__c}))&amp;&quot; &quot;&amp;{!fmExtraMonthName}&amp;&quot; &quot;&amp;TEXT(YEAR({!$Record.End_Date__c})),&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>fmExtraMonthName</name>
+        <dataType>String</dataType>
+        <expression>CASE(MONTH({!$Record.End_Date__c}),
+1,&quot;Januarie&quot;,
+2,&quot;Februarie&quot;,
+3,&quot;Maart&quot;,
+4,&quot;April&quot;,
+5,&quot;Mei&quot;,
+6,&quot;Junie&quot;,
+7,&quot;Julie&quot;,
+8,&quot;Augustus&quot;,
+9,&quot;September&quot;,
+10,&quot;Oktober&quot;,
+11,&quot;November&quot;,
+&quot;Desember&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>fmMonthName</name>
+        <dataType>String</dataType>
+        <expression>CASE(MONTH({!$Record.Date_of_Performance__c}),
+1,&quot;Januarie&quot;,
+2,&quot;Februarie&quot;,
+3,&quot;Maart&quot;,
+4,&quot;April&quot;,
+5,&quot;Mei&quot;,
+6,&quot;Junie&quot;,
+7,&quot;Julie&quot;,
+8,&quot;Augustus&quot;,
+9,&quot;September&quot;,
+10,&quot;Oktober&quot;,
+11,&quot;November&quot;,
+&quot;Desember&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>fmName</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Artist__r.Name}&amp;&quot; &quot;&amp;{!$Record.Town_or_City__r.Name}&amp;&quot; &quot;&amp;TEXT(DAY({!$Record.Date_of_Performance__c}))&amp;&quot; &quot;&amp;{!fmMonthName}&amp;&quot; &quot;&amp;TEXT(YEAR({!$Record.Date_of_Performance__c}))&amp;{!fmExtraDate}</expression>
+    </formulas>
+    <interviewLabel>Booking Form - RT - Update Booking Form Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Booking Form - RT - Update Booking Form Name</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Booking_Form_Name</targetReference>
+        </connector>
+        <filterFormula>OR(ISNEW(),
+ISCHANGED({!$Record.Artist__c}),ISCHANGED({!$Record.Town_or_City__c}),ISCHANGED({!$Record.Date_of_Performance__c}),ISCHANGED({!$Record.End_Date__c}))</filterFormula>
+        <object>Booking_Form__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>1500</triggerOrder>
+</Flow>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking_Form__c</fullName>
+    <label>Booking Form</label>
+    <referenceTo>Booking_Form__c</referenceTo>
+    <relationshipLabel>Fee Definitions</relationshipLabel>
+    <relationshipName>Booking_Form_Fee_Definitions</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

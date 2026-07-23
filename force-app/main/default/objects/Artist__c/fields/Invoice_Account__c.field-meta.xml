@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Account__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>Invoice Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Please select or create a valid Invoice Account</errorMessage>
+        <filterItems>
+            <field>Account.Can_send_Quotes_and_Invoices__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Artists</relationshipLabel>
+    <relationshipName>Artists</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deposit_Amount__c</fullName>
+    <formula>/* Base total without VAT */
+(
+    IF(
+        Include_Technical_Fee_in_Deposit__c,
+        Technical_fee__c * Deposit__c,
+        0
+    ) +
+    (Artist_Travel_Costs__c + Performance_Fee__c) * Deposit__c
+)
+/* Add VAT if applicable */
+* (1 + IF(VAT_Applicable__c, $Setup.VocalEventsSettings__c.VAT__c, 0))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The Deposit Amount Payable</inlineHelpText>
+    <label>Deposit Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

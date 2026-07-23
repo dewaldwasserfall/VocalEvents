@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Calls a flow that helps the user define a discount</description>
+    <flowDefinition>Booking_Form_Screenflow_Apply_Discount</flowDefinition>
+    <label>Apply Discount</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Checks which button was pressed</description>
+        <name>Which_Button_was_selected</name>
+        <label>Which Button was selected</label>
+        <locationX>710</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Quick_Quote</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>FlowButtonBar.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quick Quote</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Quick_Quote</targetReference>
+            </connector>
+            <label>Quick Quote</label>
+        </rules>
+        <rules>
+            <name>Booking_Form</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>FlowButtonBar.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Quick Booking Form</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Quick_Create_Booking_Form</targetReference>
+            </connector>
+            <label>Booking Form</label>
+        </rules>
+        <rules>
+            <name>Generic_Quote</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>FlowButtonBar.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Generic Quote</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Generic_Quote</targetReference>
+            </connector>
+            <label>Generic Quote</label>
+        </rules>
+        <rules>
+            <name>Generic_Invoice</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>FlowButtonBar.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Generic Invoice</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_Generic_Invoice</targetReference>
+            </connector>
+            <label>Generic Invoice</label>
+        </rules>
+        <rules>
+            <name>Send_Promotional_Material</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>FlowButtonBar.value</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Send Promotional Material</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Promotional_Materials</targetReference>
+            </connector>
+            <label>Send Promotional Material</label>
+        </rules>
+    </decisions>
+    <description>The screenflow that acts as a nav bar on the home screen</description>
+    <environments>Default</environments>
+    <interviewLabel>Home - Screenflow - Navigation Bar {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Home - Screenflow - Navigation Bar</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <screens>
+        <name>Main_Screen</name>
+        <label>Main Screen</label>
+        <locationX>710</locationX>
+        <locationY>134</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>Which_Button_was_selected</targetReference>
+        </connector>
+        <fields>
+            <name>FlowButtonBar</name>
+            <extensionName>c:fsc_flowButtonBar</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>alignment</name>
+                <value>
+                    <stringValue>right</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>orientation</name>
+                <value>
+                    <stringValue>horizontal</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>showLines</name>
+                <value>
+                    <stringValue>neither</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>actionMode</name>
+                <value>
+                    <stringValue>navigation</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>buttons</name>
+                <value>
+                    <stringValue>[{&quot;label&quot;:&quot;Quick Quote&quot;,&quot;value&quot;:&quot;Quick Quote&quot;,&quot;descriptionText&quot;:&quot;&quot;,&quot;iconPosition&quot;:&quot;left&quot;,&quot;variant&quot;:&quot;brand&quot;,&quot;iconName&quot;:&quot;utility:quote&quot;,&quot;index&quot;:0},{&quot;label&quot;:&quot;Quick Booking Form&quot;,&quot;value&quot;:&quot;Quick Booking Form&quot;,&quot;iconPosition&quot;:&quot;left&quot;,&quot;variant&quot;:&quot;brand&quot;,&quot;iconName&quot;:&quot;utility:form&quot;,&quot;index&quot;:1},{&quot;label&quot;:&quot;Generic Quote&quot;,&quot;value&quot;:&quot;Generic Quote&quot;,&quot;iconPosition&quot;:&quot;left&quot;,&quot;variant&quot;:&quot;brand&quot;,&quot;iconName&quot;:&quot;utility:quote&quot;,&quot;index&quot;:2},{&quot;label&quot;:&quot;Generic Invoice&quot;,&quot;value&quot;:&quot;Generic Invoice&quot;,&quot;iconPosition&quot;:&quot;left&quot;,&quot;variant&quot;:&quot;brand&quot;,&quot;iconName&quot;:&quot;utility:money&quot;,&quot;index&quot;:3},{&quot;label&quot;:&quot;Send Promotional Material&quot;,&quot;value&quot;:&quot;Send Promotional Material&quot;,&quot;iconPosition&quot;:&quot;left&quot;,&quot;variant&quot;:&quot;brand&quot;,&quot;iconName&quot;:&quot;utility:photo&quot;,&quot;index&quot;:4}]</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <start>
+        <locationX>584</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Main_Screen</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Create_Generic_Invoice</name>
+        <label>Create Generic Invoice</label>
+        <locationX>842</locationX>
+        <locationY>350</locationY>
+        <flowName>Invoice_Screenflow_Create_Generic_Screenflow</flowName>
+    </subflows>
+    <subflows>
+        <name>Create_Generic_Quote</name>
+        <label>Create Generic Quote</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <flowName>Quote_Screenflow_Create_Generic_Quote</flowName>
+    </subflows>
+    <subflows>
+        <description>Calls the screenflow that creates a quick quote</description>
+        <name>Create_Quick_Quote</name>
+        <label>Create Quick Quote</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <flowName>Quote_Screenflow_Create_quick_quote</flowName>
+    </subflows>
+    <subflows>
+        <name>Quick_Create_Booking_Form</name>
+        <label>Quick Create Booking Form</label>
+        <locationX>314</locationX>
+        <locationY>350</locationY>
+        <flowName>Booking_Form_Screenflow_Quick_Create_Booking_Form</flowName>
+    </subflows>
+    <subflows>
+        <name>Send_Promotional_Materials</name>
+        <label>Send Promotional Materials</label>
+        <locationX>1106</locationX>
+        <locationY>350</locationY>
+        <flowName>Artist_Screenflow_Send_Promotional_materials</flowName>
+    </subflows>
+</Flow>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the RecordsReturned flag to False</description>
+        <name>Copy_2_of_Set_Flag_to_False</name>
+        <label>Set Flag to True</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>OUT_RecordsReturned</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Sets the RecordsReturned flag to False</description>
+        <name>Set_Flag_to_False</name>
+        <label>Set Flag to False</label>
+        <locationX>314</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>OUT_RecordsReturned</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Checks if any extras were found</description>
+        <name>Were_Records_Found</name>
+        <label>Were Records Found ?</label>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Set_Flag_to_False</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>None Found</defaultConnectorLabel>
+        <rules>
+            <name>Extras_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>OUT_ExtraLineItems</leftValueReference>
+                <operator>IsEmpty</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Copy_2_of_Set_Flag_to_False</targetReference>
+            </connector>
+            <label>Extras Found</label>
+        </rules>
+    </decisions>
+    <description>A subflow called from the Quote flow to fetch extra line items for the Quote Line</description>
+    <environments>Default</environments>
+    <interviewLabel>Subflow - Get Extra Line Items {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Subflow - Get Extra Line Items</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the Extra Line Items</description>
+        <name>Get_Extra_Line_Items</name>
+        <label>Get Extra Line Items</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Were_Records_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Quick_Quote_Line_Item__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>IN_QuickQuoteLineId</elementReference>
+            </value>
+        </filters>
+        <object>Extra_Line_Item__c</object>
+        <outputReference>OUT_ExtraLineItems</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Artist__c</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <queriedFields>Type__c</queriedFields>
+        <queriedFields>Price__c</queriedFields>
+        <queriedFields>Quick_Quote_Line_Item__c</queriedFields>
+    </recordLookups>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Extra_Line_Items</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>IN_QuickQuoteLineId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>OUT_ExtraLineItems</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Extra_Line_Item__c</objectType>
+    </variables>
+    <variables>
+        <name>OUT_RecordsReturned</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+</Flow>

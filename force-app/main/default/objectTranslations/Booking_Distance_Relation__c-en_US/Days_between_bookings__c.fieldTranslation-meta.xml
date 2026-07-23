@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Displays the amount of days between the bookings --></help>
+    <label><!-- Days between bookings --></label>
+    <name>Days_between_bookings__c</name>
+</CustomFieldTranslation>

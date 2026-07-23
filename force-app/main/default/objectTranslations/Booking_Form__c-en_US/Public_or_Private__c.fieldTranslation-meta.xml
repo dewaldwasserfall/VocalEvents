@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Public or Private --></label>
+    <name>Public_or_Private__c</name>
+    <picklistValues>
+        <masterLabel>Privaat</masterLabel>
+        <translation><!-- Privaat --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Publiek</masterLabel>
+        <translation><!-- Publiek --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

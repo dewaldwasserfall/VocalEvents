@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>Artist__c</columns>
+    <columns>NAME</columns>
+    <columns>Price__c</columns>
+    <columns>Technical_1_500_people__c</columns>
+    <columns>Technical_501_1000_people__c</columns>
+    <columns>Special_or_Standard_Fee__c</columns>
+    <columns>Band_or_Solo__c</columns>
+    <columns>Accommodation_and_Meals__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

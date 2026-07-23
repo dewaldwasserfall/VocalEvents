@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Accommodation notes --></label>
+    <name>Accommodation_notes__c</name>
+</CustomFieldTranslation>

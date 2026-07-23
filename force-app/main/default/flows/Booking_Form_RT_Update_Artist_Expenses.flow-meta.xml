@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Adds a comma to the Artist expense description</description>
+        <name>Add_comma_to_description</name>
+        <label>Add comma to description</label>
+        <locationX>468</locationX>
+        <locationY>1355</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Description_of_Artist_Expenses__c</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <stringValue>, </stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Variables</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assigns the expense variables</description>
+        <name>Assign_Variables</name>
+        <label>Assign Variables</label>
+        <locationX>380</locationX>
+        <locationY>1547</locationY>
+        <assignmentItems>
+            <assignToReference>varExpense.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_to_Create_Expenses.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varExpense.Description__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_to_Create_Expenses.Description__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varExpense.Price__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_to_Create_Expenses.Price__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varExpense.Booking_Form__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>colExpenses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>varExpense</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Description_of_Artist_Expenses__c</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_to_Create_Expenses.Description__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varLoopCounter</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_to_Create_Expenses</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Checks if this is the first loop. For al except the first loop, a comma is added to the Description of Artist Expense field</description>
+        <name>Check_Loop_Counter</name>
+        <label>Check Loop Counter</label>
+        <locationX>380</locationX>
+        <locationY>1247</locationY>
+        <defaultConnector>
+            <targetReference>Add_comma_to_description</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Add comma</defaultConnectorLabel>
+        <rules>
+            <name>First_Iteration</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varLoopCounter</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Variables</targetReference>
+            </connector>
+            <label>First Iteration</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks if the Artist has fixed expenses</description>
+        <name>Does_Artist_Have_Fixed_Expenses</name>
+        <label>Does Artist Have Fixed Expenses</label>
+        <locationX>336</locationX>
+        <locationY>1031</locationY>
+        <defaultConnectorLabel>No Expenses</defaultConnectorLabel>
+        <rules>
+            <name>Has_Expenses</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Artist_Fixed_Expenses</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_to_Create_Expenses</targetReference>
+            </connector>
+            <label>Has Expenses</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks if the Arist was changed</description>
+        <name>Was_Artist_Changed</name>
+        <label>Was Artist Changed</label>
+        <locationX>336</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Get_Artist_Fixed_Expenses</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>New Record</defaultConnectorLabel>
+        <rules>
+            <name>Artist_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Artist__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Artist__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Existing_Expense_Records</targetReference>
+            </connector>
+            <label>Artist Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Checks if existing expenses were found</description>
+        <name>Were_Expenses_Found</name>
+        <label>Were Expenses Found</label>
+        <locationX>182</locationX>
+        <locationY>539</locationY>
+        <defaultConnector>
+            <targetReference>Get_Artist_Fixed_Expenses</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Expenses_found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Existing_Expense_Records</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Delete_Existing_Expenses</targetReference>
+            </connector>
+            <label>Expenses found</label>
+        </rules>
+    </decisions>
+    <description>Creates and Deletes Artist expense records when a booking form is created or updated</description>
+    <environments>Default</environments>
+    <interviewLabel>Booking Form - RT - Update Artist Expenses {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Booking Form - RT - Update Artist Expenses</label>
+    <loops>
+        <description>Loops to create Expense records on the Booking form</description>
+        <name>Loop_to_Create_Expenses</name>
+        <label>Loop to Create Expenses</label>
+        <locationX>204</locationX>
+        <locationY>1139</locationY>
+        <collectionReference>Get_Artist_Fixed_Expenses</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Check_Loop_Counter</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Create_Artist_Expenses</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Creates the Expense records in the collection</description>
+        <name>Create_Artist_Expenses</name>
+        <label>Create Artist Expenses</label>
+        <locationX>204</locationX>
+        <locationY>1739</locationY>
+        <connector>
+            <targetReference>Update_Booking_form</targetReference>
+        </connector>
+        <inputReference>colExpenses</inputReference>
+    </recordCreates>
+    <recordDeletes>
+        <description>Deletes the existing expense records</description>
+        <name>Delete_Existing_Expenses</name>
+        <label>Delete Existing Expenses</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <connector>
+            <targetReference>Get_Artist_Fixed_Expenses</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Booking_Form__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <object>Artist_Expenses_Booking_Form__c</object>
+    </recordDeletes>
+    <recordLookups>
+        <description>Gets the fixed expenses for the Artist on the Booking form</description>
+        <name>Get_Artist_Fixed_Expenses</name>
+        <label>Get Artist Fixed Expenses</label>
+        <locationX>336</locationX>
+        <locationY>923</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Does_Artist_Have_Fixed_Expenses</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Artist__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Artist__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Artist_Fixed_Expense__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets existing expenses related to the Booking form</description>
+        <name>Get_Existing_Expense_Records</name>
+        <label>Get Existing Expense Records</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Were_Expenses_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Booking_Form__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Artist_Expenses_Booking_Form__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the description of Aritst Expense Field</description>
+        <name>Update_Booking_form</name>
+        <label>Update Booking form</label>
+        <locationX>204</locationX>
+        <locationY>1847</locationY>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>210</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Was_Artist_Changed</targetReference>
+        </connector>
+        <filterFormula>NOT(ISBLANK({!$Record.Artist__c}))&amp;&amp;
+OR(ISNEW(),ISCHANGED({!$Record.Artist__c}))</filterFormula>
+        <object>Booking_Form__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>colExpenses</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Artist_Expenses_Booking_Form__c</objectType>
+    </variables>
+    <variables>
+        <name>varExpense</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Artist_Expenses_Booking_Form__c</objectType>
+    </variables>
+    <variables>
+        <name>varLoopCounter</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

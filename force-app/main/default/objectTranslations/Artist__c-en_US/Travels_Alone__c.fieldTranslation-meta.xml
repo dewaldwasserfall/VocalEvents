@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If the Artist supplies Sound, the Artist travels separate from the Technical Crew --></help>
+    <label><!-- Travels Alone --></label>
+    <name>Travels_Alone__c</name>
+</CustomFieldTranslation>

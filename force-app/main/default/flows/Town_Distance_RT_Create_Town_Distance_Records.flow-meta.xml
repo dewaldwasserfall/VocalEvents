@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assings all variables to create Town Distance records</description>
+        <name>Assign_variables</name>
+        <label>Assign variables</label>
+        <locationX>440</locationX>
+        <locationY>492</locationY>
+        <assignmentItems>
+            <assignToReference>varTownDistance.Starting_Town__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varTownDistance.Destination__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_over_Towns.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varTownDistance.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fmTownDistanceName</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>colTownDistance</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>varTownDistance</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_over_Towns</targetReference>
+        </connector>
+    </assignments>
+    <description>When a new Town is Created, this flow creates the Town Distance records for the Town</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fmInverseName</name>
+        <dataType>String</dataType>
+        <expression>{!Loop_over_Towns.Name}&amp;&quot; --&gt; &quot;&amp;{!$Record.Name}</expression>
+    </formulas>
+    <formulas>
+        <name>fmTownDistanceName</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Name}&amp;&quot; --&gt; &quot;&amp;{!Loop_over_Towns.Name}</expression>
+    </formulas>
+    <interviewLabel>Town Distance - RT - Create Town Distance Records {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Town Distance - RT - Create Town Distance Records</label>
+    <loops>
+        <description>Loops over all the found towns</description>
+        <name>Loop_over_Towns</name>
+        <label>Loop over Towns</label>
+        <locationX>352</locationX>
+        <locationY>384</locationY>
+        <collectionReference>Get_All_other_Towns</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_variables</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Create_Town_Distance_Records</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Creates all the records in the Variable</description>
+        <name>Create_Town_Distance_Records</name>
+        <label>Create Town Distance Records</label>
+        <locationX>352</locationX>
+        <locationY>684</locationY>
+        <inputReference>colTownDistance</inputReference>
+    </recordCreates>
+    <recordLookups>
+        <description>Gets all other towns</description>
+        <name>Get_All_other_Towns</name>
+        <label>Get All other Towns</label>
+        <locationX>352</locationX>
+        <locationY>276</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_over_Towns</targetReference>
+        </connector>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Town__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <object>Town__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Get_All_other_Towns</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>colTownDistance</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Town_Distance__c</objectType>
+    </variables>
+    <variables>
+        <name>varTownDistance</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Town_Distance__c</objectType>
+    </variables>
+</Flow>

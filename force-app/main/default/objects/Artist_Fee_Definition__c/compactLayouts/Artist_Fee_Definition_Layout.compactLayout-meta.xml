@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Artist_Fee_Definition_Layout</fullName>
+    <fields>Artist__c</fields>
+    <fields>Active__c</fields>
+    <fields>Name</fields>
+    <fields>Special_conditions__c</fields>
+    <label>Artist Fee Definition Layout</label>
+</CompactLayout>

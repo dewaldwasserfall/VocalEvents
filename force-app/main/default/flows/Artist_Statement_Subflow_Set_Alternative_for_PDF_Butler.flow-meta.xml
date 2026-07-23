@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the Alternative</description>
+        <name>Set_Alternative</name>
+        <label>Set Alternative</label>
+        <locationX>314</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>alternative</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Artist_Statement.PDF_Template__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Sets the alternative name for the Booking form PDF Butler component</description>
+        <name>Set_Alternative_Name_for_Booking_Form</name>
+        <label>Set Alternative Name for Booking Form</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>alternative</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Booking_Form.Artist_Name_for_PDF_Butler__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Checks the sObject Type</description>
+        <name>sObject_Type</name>
+        <label>sObject Type</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Get_Artist_Statement</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Artist Statement</defaultConnectorLabel>
+        <rules>
+            <name>BookingForm</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>input.recordId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>a03</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Booking_Form</targetReference>
+            </connector>
+            <label>Booking Form</label>
+        </rules>
+    </decisions>
+    <description>Sets the Alternative descriptor for PDF Butler</description>
+    <environments>Default</environments>
+    <interviewLabel>Artist Statement - Subflow - Set Alternative for PDF Butler {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Artist Statement - Subflow - Set Alternative for PDF Butler</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the related artist statement</description>
+        <name>Get_Artist_Statement</name>
+        <label>Get Artist Statement</label>
+        <locationX>314</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Alternative</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>input.recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Artist_Statement__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the Booking Form</description>
+        <name>Get_Booking_Form</name>
+        <label>Get Booking Form</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Alternative_Name_for_Booking_Form</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>input.recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Booking_Form__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>sObject_Type</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>alternative</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>input</name>
+        <apexClass>cadmus_core__ComponentDataByFlowInput</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

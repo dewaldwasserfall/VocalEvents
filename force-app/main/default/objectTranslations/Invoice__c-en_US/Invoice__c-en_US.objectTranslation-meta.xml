@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Invoice</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Invoices</value>
+    </caseValues>
+    <layouts>
+        <layout>Artist Invoice Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Information --></label>
+            <section>Financial Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Invoice Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Information --></label>
+            <section>Financial Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- New Credit Note --></label>
+        <name>New_Credit_Note</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Preview and Email Invoice --></label>
+        <name>Preview_and_Email_Invoice</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Preview and Send Artist Invoice / Statement --></label>
+        <name>Preview_and_Send_Artist_Invoice</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- Used to Invoice Artist monthly commissions --></description>
+        <label><!-- Artist Invoice --></label>
+        <name>Artist_Invoice</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- A credit note created from an Invoice --></description>
+        <label><!-- Credit Note --></label>
+        <name>Credit_Note</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Used to Invoice Clients --></description>
+        <label><!-- Standard Invoice --></label>
+        <name>Standard_Invoice</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Statement --></label>
+        <name>Statement</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

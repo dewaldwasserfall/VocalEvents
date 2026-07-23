@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Multiple_Performance_Dates__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If the performance has more than 1 date, fill the dates in here to reflect on the contract</inlineHelpText>
+    <label>Multiple Performance Dates</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

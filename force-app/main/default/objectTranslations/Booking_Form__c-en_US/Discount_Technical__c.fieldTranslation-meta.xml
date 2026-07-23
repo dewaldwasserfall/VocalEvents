@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The discount percentage applied to the technical fee --></help>
+    <label><!-- Discount (%) - Technical --></label>
+    <name>Discount_Technical__c</name>
+</CustomFieldTranslation>

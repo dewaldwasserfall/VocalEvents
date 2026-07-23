@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking_Form_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>Performance_Fee__c</fields>
+    <fields>Technical_fee__c</fields>
+    <fields>Artist_Travel_Costs__c</fields>
+    <fields>Discount__c</fields>
+    <fields>Discount_Technical__c</fields>
+    <label>Booking Form Compact Layout</label>
+</CompactLayout>

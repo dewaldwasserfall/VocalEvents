@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Total Technical Travel costs for this quote --></help>
+    <label><!-- Total Technical Travel Fee --></label>
+    <name>Total_Travel_Fee__c</name>
+</CustomFieldTranslation>

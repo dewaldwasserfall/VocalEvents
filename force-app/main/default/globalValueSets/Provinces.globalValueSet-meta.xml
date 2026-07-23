@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Eastern Cape</fullName>
+        <default>false</default>
+        <label>Eastern Cape</label>
+    </customValue>
+    <customValue>
+        <fullName>Free State</fullName>
+        <default>false</default>
+        <label>Free State</label>
+    </customValue>
+    <customValue>
+        <fullName>Gauteng</fullName>
+        <default>false</default>
+        <label>Gauteng</label>
+    </customValue>
+    <customValue>
+        <fullName>KwaZulu-Natal</fullName>
+        <default>false</default>
+        <label>KwaZulu-Natal</label>
+    </customValue>
+    <customValue>
+        <fullName>Limpopo</fullName>
+        <default>false</default>
+        <label>Limpopo</label>
+    </customValue>
+    <customValue>
+        <fullName>Mpumalanga</fullName>
+        <default>false</default>
+        <label>Mpumalanga</label>
+    </customValue>
+    <customValue>
+        <fullName>Northern Cape</fullName>
+        <default>false</default>
+        <label>Northern Cape</label>
+    </customValue>
+    <customValue>
+        <fullName>North West</fullName>
+        <default>false</default>
+        <label>North West</label>
+    </customValue>
+    <customValue>
+        <fullName>Western Cape</fullName>
+        <default>false</default>
+        <label>Western Cape</label>
+    </customValue>
+    <customValue>
+        <fullName>Outside of South Africa</fullName>
+        <default>false</default>
+        <label>Outside of South Africa</label>
+    </customValue>
+    <masterLabel>Provinces</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

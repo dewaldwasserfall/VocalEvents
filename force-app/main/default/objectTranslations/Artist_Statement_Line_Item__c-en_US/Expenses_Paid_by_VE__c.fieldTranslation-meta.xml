@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The total value of Expenses Paid by Vocal Events --></help>
+    <label><!-- Expenses Paid by VE --></label>
+    <name>Expenses_Paid_by_VE__c</name>
+</CustomFieldTranslation>

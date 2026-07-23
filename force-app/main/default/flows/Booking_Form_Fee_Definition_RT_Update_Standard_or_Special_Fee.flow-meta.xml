@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assigns the special fee definition</description>
+        <name>Assign_Special_Fee_Definition</name>
+        <label>Assign Special Fee Definition</label>
+        <locationX>314</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Artist_Fee_Definition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Special_Fee.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Performance_Fee__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Special_Fee.Price__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Technical_Fee__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fmTechnicalFeeSpecial</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Assigns the Standard fee definition</description>
+        <name>Assign_Standard_Fee_Definition</name>
+        <label>Assign Standard Fee Definition</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Artist_Fee_Definition__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Standard_Fee.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Performance_Fee__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Standard_Fee.Price__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Technical_Fee__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fmTechnicalFeeStandard</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Checks if the fee should be updated to a standard or special fee</description>
+        <name>Should_Fee_be_updated</name>
+        <label>Should Fee be updated ?</label>
+        <locationX>314</locationX>
+        <locationY>287</locationY>
+        <defaultConnectorLabel>End</defaultConnectorLabel>
+        <rules>
+            <name>Update_to_Standard_Fee</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fmStandardOrSpecialFee</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Standard</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Artist_Fee_Definition__r.Special_or_Standard_Fee__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Special Fee</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Standard_Fee</targetReference>
+            </connector>
+            <label>Update to Standard Fee</label>
+        </rules>
+        <rules>
+            <name>Update_to_Special_fee</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fmStandardOrSpecialFee</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Special</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Artist_Fee_Definition__r.Special_or_Standard_Fee__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Standard Fee</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Special_Fee</targetReference>
+            </connector>
+            <label>Update to Special fee</label>
+        </rules>
+    </decisions>
+    <description>When the record&apos;s date changes, the fee is updated to standard or special fee</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fmStandardOrSpecialFee</name>
+        <dataType>String</dataType>
+        <expression>CASE(MOD({!$Record.Date__c} - DATE(1900, 1, 7), 7),
+0, &quot;Standard&quot;,
+1, &quot;Special&quot;,
+2, &quot;Special&quot;,
+3, &quot;Special&quot;,
+4, &quot;Special&quot;,
+5, &quot;Standard&quot;,
+6, &quot;Standard&quot;,
+&quot;Standard&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>fmTechnicalFeeSpecial</name>
+        <dataType>Currency</dataType>
+        <expression>IF(ISPICKVAL({!$Record.Booking_Form__r.Amount_of_People__c},&apos;1 - 500&apos;),
+{!Get_Special_Fee.Technical_1_500_people__c}, {!Get_Special_Fee.Technical_501_1000_people__c})</expression>
+        <scale>2</scale>
+    </formulas>
+    <formulas>
+        <name>fmTechnicalFeeStandard</name>
+        <dataType>Currency</dataType>
+        <expression>IF(ISPICKVAL({!$Record.Booking_Form__r.Amount_of_People__c},&apos;1 - 500&apos;),
+{!Get_Standard_Fee.Technical_1_500_people__c},{!Get_Standard_Fee.Technical_501_1000_people__c})</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>Booking Form Fee Definition {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Booking Form Fee Definition - RT - Update Standard or Special Fee</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the special fee definition</description>
+        <name>Get_Special_Fee</name>
+        <label>Get Special Fee</label>
+        <locationX>314</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Special_Fee_Definition</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Artist__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Artist_Fee_Definition__r.Artist__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Special_or_Standard_Fee__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Special Fee</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Artist_Fee_Definition__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the Standard Fee for the artist</description>
+        <name>Get_Standard_Fee</name>
+        <label>Get Standard Fee</label>
+        <locationX>50</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Standard_Fee_Definition</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Artist__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Artist_Fee_Definition__r.Artist__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Special_or_Standard_Fee__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Standard Fee</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Artist_Fee_Definition__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Should_Fee_be_updated</targetReference>
+        </connector>
+        <filterFormula>ISCHANGED({!$Record.Date__c}) &amp;&amp;
+{!$Record.Artist_Fee_Definition__r.Artist__r.Has_special_fee__c}</filterFormula>
+        <object>Booking_Form_Fee_Definition__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

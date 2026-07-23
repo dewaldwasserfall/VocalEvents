@@ -1,0 +1,71 @@
+{
+  "appPageId" : "0a72e0b0-bcb0-4d19-8694-7b628c1f2188",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "7f3987a5-8b9a-4a6b-bf8a-5c4294f10915",
+  "label" : "Callsheet",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 80,
+        "sectionConfig" : {
+          "UUID" : "efdfa90d-10bb-4890-ab00-f609fb8f80e9",
+          "columns" : [ {
+            "UUID" : "76662e0e-25b1-4f44-bb24-ef0d9dbbdb84",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "efdfa90d-10bb-4890-ab00-f609fb8f80e9",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "flowArguments" : "[{\"label\":\"recordId\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!recordId}\"}]",
+            "flowName" : "Booking_Form_Screenflow_Update_Callsheet"
+          },
+          "componentName" : "forceCommunity:flowCommunity",
+          "id" : "afc636a8-e1d4-497a-8d3e-d4be8c76814d",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "76662e0e-25b1-4f44-bb24-ef0d9dbbdb84",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8ac0a9d5-e4be-4bff-97c0-99a053413f83",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Callsheet"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "558b113a-8cb6-4df0-afa9-4a7a9da350ef",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "82bfea65-a4c8-4a8c-84ee-278f623d6692",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-callsheet"
+}

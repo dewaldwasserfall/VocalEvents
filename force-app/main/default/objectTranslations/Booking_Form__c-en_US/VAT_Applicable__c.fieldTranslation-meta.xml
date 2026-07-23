@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- This box is checked if VAT should be charged on this booking --></help>
+    <label><!-- VAT Applicable --></label>
+    <name>VAT_Applicable__c</name>
+</CustomFieldTranslation>

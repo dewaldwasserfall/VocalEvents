@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The primary contact for this technical company</description>
+    <label>Primary Contact</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>A contact must have the &apos;Technical&apos; checkbox checked to be added here</errorMessage>
+        <filterItems>
+            <field>Contact.Technical__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Technical Suppliers</relationshipLabel>
+    <relationshipName>Technical_Suppliers</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

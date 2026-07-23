@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Lighting Technician --></label>
+    <lookupFilter>
+        <errorMessage><!-- Please select a Technical Contact as the Lighting Technician --></errorMessage>
+    </lookupFilter>
+    <name>Lighting_Technician__c</name>
+    <relationshipLabel><!-- Booking Forms (Lighting Technician) --></relationshipLabel>
+</CustomFieldTranslation>

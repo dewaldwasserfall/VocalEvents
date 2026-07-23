@@ -1,0 +1,95 @@
+{
+  "appPageId" : "0a72e0b0-bcb0-4d19-8694-7b628c1f2188",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "0042d1ff-a7c3-4740-bd0d-fe79cdc05b60",
+  "label" : "Survey",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "b935cf57-b1eb-418d-9c80-401c17b22814",
+          "columns" : [ {
+            "UUID" : "75ee7da1-234b-4825-8900-af99495f17e9",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "3",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "7e3b06df-fae6-4532-97c9-ef40bfc84a8d",
+            "columnKey" : "51f90",
+            "columnName" : "Column 2",
+            "columnWidth" : "6",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "bbc82f53-64d9-4600-ab37-7b51dbc32c28",
+            "columnKey" : "82910",
+            "columnName" : "Column 3",
+            "columnWidth" : "3",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "b935cf57-b1eb-418d-9c80-401c17b22814",
+      "regions" : [ {
+        "id" : "75ee7da1-234b-4825-8900-af99495f17e9",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "flowArguments" : "[{\"label\":\"varBookingForm\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!varBookingForm}\"}]",
+            "flowName" : "Survey_Screenflow_Fill_in_Survey"
+          },
+          "componentName" : "forceCommunity:flowCommunity",
+          "id" : "77f08211-6e5c-4709-b0b0-5567cd089223",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "7e3b06df-fae6-4532-97c9-ef40bfc84a8d",
+        "regionLabel" : "Column 2",
+        "regionName" : "51f90",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "id" : "bbc82f53-64d9-4600-ab37-7b51dbc32c28",
+        "regionLabel" : "Column 3",
+        "regionName" : "82910",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a7364652-0911-4ea1-9089-d3913282654e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Survey"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "9b2e932a-453a-4863-b7dc-3ebcb762a62b",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "671cd390-f4ff-401d-84eb-148426e697f2",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-survey"
+}

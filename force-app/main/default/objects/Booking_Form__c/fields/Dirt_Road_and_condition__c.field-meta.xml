@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dirt_Road_and_condition__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Will the Artist and crew need to travel on a dirt road, and if so, in what condition is the road ?</inlineHelpText>
+    <label>Dirt Road and condition</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

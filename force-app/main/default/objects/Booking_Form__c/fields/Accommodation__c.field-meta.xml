@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accommodation__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>The Hotel or Guest House where the artist will sleep over</inlineHelpText>
+    <label>Accommodation</label>
+    <referenceTo>Accommodation__c</referenceTo>
+    <relationshipLabel>Booking Forms</relationshipLabel>
+    <relationshipName>Booking_Forms</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

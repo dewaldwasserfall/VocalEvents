@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If no deposit is required, select Balance --></help>
+    <label><!-- Type --></label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Balance</masterLabel>
+        <translation><!-- Balance --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Deposit</masterLabel>
+        <translation><!-- Deposit --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

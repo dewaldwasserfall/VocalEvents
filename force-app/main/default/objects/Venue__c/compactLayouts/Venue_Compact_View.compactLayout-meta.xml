@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Venue_Compact_View</fullName>
+    <fields>Name</fields>
+    <fields>Address__c</fields>
+    <fields>Venue_Capacity__c</fields>
+    <fields>Venue_Type__c</fields>
+    <label>Venue Compact View</label>
+</CompactLayout>

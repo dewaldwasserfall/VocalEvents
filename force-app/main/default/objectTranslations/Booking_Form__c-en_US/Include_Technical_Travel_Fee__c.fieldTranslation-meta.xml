@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Check this box if you wish to include travel costs for the Technical Company --></help>
+    <label><!-- Include Technical Travel Fee --></label>
+    <name>Include_Technical_Travel_Fee__c</name>
+</CustomFieldTranslation>

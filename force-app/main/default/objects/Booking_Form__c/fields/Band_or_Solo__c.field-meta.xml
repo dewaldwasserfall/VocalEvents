@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Band_or_Solo__c</fullName>
+    <defaultValue>&quot;Solo&quot;</defaultValue>
+    <description>Will the artist be performing Solo or with a Band ?</description>
+    <label>Band or Solo</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Solo_or_with_Band</valueSetName>
+    </valueSet>
+</CustomField>

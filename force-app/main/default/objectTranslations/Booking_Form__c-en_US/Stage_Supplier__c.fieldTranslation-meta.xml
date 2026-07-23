@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The technical company supplying the stage --></help>
+    <label><!-- Stage Supplier --></label>
+    <name>Stage_Supplier__c</name>
+    <relationshipLabel><!-- Booking Forms (Stage Supplier) --></relationshipLabel>
+</CustomFieldTranslation>

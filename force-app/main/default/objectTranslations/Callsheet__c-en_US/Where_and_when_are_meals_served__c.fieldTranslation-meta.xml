@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Where and when will meals be served to the Artist ? --></help>
+    <label><!-- Where and when are meals served ? --></label>
+    <name>Where_and_when_are_meals_served__c</name>
+</CustomFieldTranslation>

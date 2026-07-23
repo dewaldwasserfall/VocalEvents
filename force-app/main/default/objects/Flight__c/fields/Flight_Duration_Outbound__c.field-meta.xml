@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Flight_Duration_Outbound__c</fullName>
+    <description>The duration of the Outbound Flight</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  FLOOR((Landing_Time_Outbound__c - Departing_Time_Outbound__c) * 24) = 0,
+  &quot;&quot;,
+  TEXT(FLOOR((Landing_Time_Outbound__c - Departing_Time_Outbound__c) * 24)) &amp; &quot; Hour&quot; &amp; IF(FLOOR((Landing_Time_Outbound__c - Departing_Time_Outbound__c) * 24) &gt; 1, &quot;s&quot;, &quot;&quot;) &amp; &quot;, &quot;
+) &amp;
+TEXT(MOD((Landing_Time_Outbound__c - Departing_Time_Outbound__c) * 1440, 60)) &amp; &quot; Minute&quot; &amp; IF(MOD((Landing_Time_Outbound__c - Departing_Time_Outbound__c) * 1440, 60) &lt;&gt; 1, &quot;s&quot;, &quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Flight Duration (Outbound)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

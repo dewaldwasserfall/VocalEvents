@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Formats the phone number into a desireable format</description>
+        <name>Update_Phone_Number</name>
+        <label>Update Phone Number</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Phone</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fmPhoneNumber</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Formats the Contacts phone number to remove unwanted characters</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fmPhoneNumber</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Phone}, &quot;-&quot;, &quot; &quot;), &quot;(&quot;, &quot;&quot;), &quot;)&quot;, &quot;&quot;)</expression>
+    </formulas>
+    <interviewLabel>Contact - RT - Format Phone Number {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contact - RT - Format Phone Number</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Phone_Number</targetReference>
+        </connector>
+        <filterFormula>OR(ISNEW(),ISCHANGED({!$Record.Phone}))&amp;&amp;
+NOT(ISBLANK({!$Record.Phone}))</filterFormula>
+        <object>Contact</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

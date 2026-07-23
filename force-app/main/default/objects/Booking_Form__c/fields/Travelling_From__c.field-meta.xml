@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travelling_From__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The town the artist will be travelling from to get to the Performance</description>
+    <label>Travelling From</label>
+    <referenceTo>Town__c</referenceTo>
+    <relationshipLabel>Booking Forms (Travelling From)</relationshipLabel>
+    <relationshipName>Booking_Forms_Travelling_From</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

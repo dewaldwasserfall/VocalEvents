@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Incl_VAT__c</fullName>
+    <formula>Total_Excl_VAT__c + 
+IF( Artist__r.Charges_VAT__c,
+(Total_Excl_VAT__c*
+($Setup.VocalEventsSettings__c.VAT__c)),0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Incl VAT</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

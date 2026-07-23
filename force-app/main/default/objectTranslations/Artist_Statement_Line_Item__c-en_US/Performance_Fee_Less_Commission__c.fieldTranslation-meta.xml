@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Performance Fee minus Vocal Events Commission --></help>
+    <label><!-- Performance Fee Less Commission --></label>
+    <name>Performance_Fee_Less_Commission__c</name>
+</CustomFieldTranslation>

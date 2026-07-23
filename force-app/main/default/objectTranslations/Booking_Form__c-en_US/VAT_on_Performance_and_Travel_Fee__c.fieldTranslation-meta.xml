@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The VAT charged for the Performance and Travel --></help>
+    <label><!-- VAT on Performance and Travel Fee --></label>
+    <name>VAT_on_Performance_and_Travel_Fee__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>A CMDT that contains a list of possible artist expenses</description>
+    <label>Artist Expense CMDT</label>
+    <pluralLabel>Artist Expenses CMDT</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

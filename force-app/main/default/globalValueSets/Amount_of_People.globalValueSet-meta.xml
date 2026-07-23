@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>1 - 500</fullName>
+        <default>true</default>
+        <label>1 - 500</label>
+    </customValue>
+    <customValue>
+        <fullName>501 - 1000</fullName>
+        <default>false</default>
+        <label>501 - 1000</label>
+    </customValue>
+    <customValue>
+        <fullName>Meer as 1000</fullName>
+        <default>false</default>
+        <label>Meer as 1000</label>
+    </customValue>
+    <masterLabel>Amount of People</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

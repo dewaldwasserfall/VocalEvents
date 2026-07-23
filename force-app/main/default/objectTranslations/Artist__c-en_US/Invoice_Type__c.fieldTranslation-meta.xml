@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Determines if the Artist&apos;s monthly breakdown is an Invoice or a Statement (ie, Vocal Events invoices Artist - Invoice, or Artist invoices Vocal Events - Statement) --></help>
+    <label><!-- Default Breakdown Type --></label>
+    <name>Invoice_Type__c</name>
+    <picklistValues>
+        <masterLabel>Invoice</masterLabel>
+        <translation><!-- Invoice --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Statement</masterLabel>
+        <translation><!-- Statement --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

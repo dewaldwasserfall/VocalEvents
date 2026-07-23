@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- I am aware that it is the Organisers responsibility to ensure that no recordings are made of the performance --></help>
+    <label><!-- Aware of Restriction on Recordings --></label>
+    <name>Recordings_Prohibited__c</name>
+</CustomFieldTranslation>

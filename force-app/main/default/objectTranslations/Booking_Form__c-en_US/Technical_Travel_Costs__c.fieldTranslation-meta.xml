@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Technical travel fees. If Artist travel with crew, this amount is 0, and all travel costs are paid by die the artist --></help>
+    <label><!-- Technical Travel Costs --></label>
+    <name>Technical_Travel_Costs__c</name>
+</CustomFieldTranslation>

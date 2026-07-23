@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Special or Standard Fee --></label>
+    <name>Special_or_Standard_Fee__c</name>
+    <picklistValues>
+        <masterLabel>Special Fee</masterLabel>
+        <translation><!-- Special Fee --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Standard Fee</masterLabel>
+        <translation><!-- Standard Fee --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

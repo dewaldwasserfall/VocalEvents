@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assigns the Original Outbound Price to the variable</description>
+        <name>Assign_Original_Outbound_Price</name>
+        <label>Assign Original Outbound Price</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <assignmentItems>
+            <assignToReference>varOutboundPrice</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Price_Outbound__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Flight_Prices</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Splits the flight prices between Inbound and Outbound</description>
+        <name>Update_Flight_Prices</name>
+        <label>Update Flight Prices</label>
+        <locationX>176</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Price_Inbound__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fmHalfPrice</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Price_Outbound__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fmHalfPrice</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>If the Inbound price is not filled in, the Total price is split between inbound and outbound flights</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fmHalfPrice</name>
+        <dataType>Currency</dataType>
+        <expression>{!varOutboundPrice}/2</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Flight - RT - Update Pricing {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Flight - RT - Update Pricing</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_Original_Outbound_Price</targetReference>
+        </connector>
+        <filterFormula>OR(AND(ISNEW(),ISBLANK({!$Record.Price_Inbound__c})),
+AND(ISCHANGED({!$Record.Price_Outbound__c}),ISBLANK({!$Record.Price_Inbound__c})))</filterFormula>
+        <object>Flight__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varOutboundPrice</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

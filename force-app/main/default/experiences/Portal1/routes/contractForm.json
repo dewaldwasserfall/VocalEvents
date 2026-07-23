@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "054a286a-34a2-4953-90a3-43cc9941da4e",
+  "appPageId" : "0a72e0b0-bcb0-4d19-8694-7b628c1f2188",
+  "configurationTags" : [ ],
+  "devName" : "ContractForm__c",
+  "id" : "759b9679-a97a-477a-b209-09f8d7b1071e",
+  "label" : "Contract Form",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-contract-form",
+  "type" : "route",
+  "urlPrefix" : "contract-form"
+}

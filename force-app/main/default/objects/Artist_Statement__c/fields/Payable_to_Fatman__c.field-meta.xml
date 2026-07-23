@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payable_to_Fatman__c</fullName>
+    <label>Payable to Fatman</label>
+    <summarizedField>Artist_Statement_Line_Item__c.Subtotal__c</summarizedField>
+    <summaryForeignKey>Artist_Statement_Line_Item__c.Artist_Statement__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Date the Balance was paid. Do not manually update this field. It will be updated by setting the Invoice Stage to &quot;Balance Paid&quot; --></help>
+    <label><!-- Balance Paid --></label>
+    <name>Balance_Paid__c</name>
+</CustomFieldTranslation>

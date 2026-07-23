@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Callsheet</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Callsheets</value>
+    </caseValues>
+    <layouts>
+        <layout>Callsheet Layout</layout>
+        <sections>
+            <label><!-- Accommodation --></label>
+            <section>Accommodation</section>
+        </sections>
+        <sections>
+            <label><!-- Backstage and Meals --></label>
+            <section>Backstage and Meals</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Info --></label>
+            <section>Contact Info</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Show Info --></label>
+            <section>Show Info</section>
+        </sections>
+        <sections>
+            <label><!-- Technical Info --></label>
+            <section>Technical Info</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

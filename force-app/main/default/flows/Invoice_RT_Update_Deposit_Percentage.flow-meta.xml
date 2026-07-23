@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Updates the Deposit Percentage when the deposit received is different form the expected deposit</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fmDepositPercentage</name>
+        <dataType>Number</dataType>
+        <expression>(({!$Record.Deposit_Amount_Received__c}-({!$Record.Deposit_Amount_Received__c}*0.15))/{!$Record.Subtotal__c})*100</expression>
+        <scale>16</scale>
+    </formulas>
+    <interviewLabel>Invoice - RT - Update Deposit Percentage {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Invoice - RT - Update Deposit Percentage</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Updates the Deposit Percentage</description>
+        <name>Update_Deposit_Percentage</name>
+        <label>Update Deposit Percentage</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <inputAssignments>
+            <field>Deposit__c</field>
+            <value>
+                <elementReference>fmDepositPercentage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Deposit_Percentage</targetReference>
+        </connector>
+        <filterFormula>ISCHANGED({!$Record.Deposit_Amount_Received__c})&amp;&amp;
+NOT(ISBLANK({!$Record.Deposit_Amount_Received__c}))</filterFormula>
+        <object>Invoice__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

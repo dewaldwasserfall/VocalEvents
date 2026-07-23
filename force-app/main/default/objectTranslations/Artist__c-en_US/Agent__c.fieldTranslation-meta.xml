@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The default agent for this artist --></help>
+    <label><!-- Agent --></label>
+    <name>Agent__c</name>
+    <relationshipLabel><!-- Artists --></relationshipLabel>
+</CustomFieldTranslation>

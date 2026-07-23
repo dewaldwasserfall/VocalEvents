@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Artist_Fee_Definition__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>Artist Fee Definition</label>
+    <referenceTo>Artist_Fee_Definition__c</referenceTo>
+    <relationshipLabel>Quick Quote Line Item</relationshipLabel>
+    <relationshipName>Quick_Quote_Line_Item</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

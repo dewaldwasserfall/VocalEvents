@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Universal Music</fullName>
+        <default>false</default>
+        <label>Universal Music</label>
+    </customValue>
+    <customValue>
+        <fullName>Sony Music</fullName>
+        <default>false</default>
+        <label>Sony Music</label>
+    </customValue>
+    <customValue>
+        <fullName>Coleske Artists</fullName>
+        <default>false</default>
+        <label>Coleske Artists</label>
+    </customValue>
+    <customValue>
+        <fullName>Vonk Musiek</fullName>
+        <default>false</default>
+        <label>Vonk Musiek</label>
+    </customValue>
+    <customValue>
+        <fullName>Warner Music</fullName>
+        <default>false</default>
+        <label>Warner Music</label>
+    </customValue>
+    <masterLabel>Record Companies</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Sets the name of the related flight record as well as the Flight Description for the Contract</description>
+    <environments>Default</environments>
+    <interviewLabel>Booking Form - RT - Update Flight Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Booking Form - RT - Update Flight Name</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the Booking Form Fee definition for this artist</description>
+        <name>Get_Booking_Form_Fee_Definitions</name>
+        <label>Get Booking Form Fee Definitions</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Flight_Name_and_Description_for_Contract</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Booking_Form__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Booking_Form_Fee_Definition__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the Name of the Flight Record and the Description for the contract</description>
+        <name>Update_Flight_Name_and_Description_for_Contract</name>
+        <label>Update Flight Name and Description for Contract</label>
+        <locationX>176</locationX>
+        <locationY>431</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Flights__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Description_for_Contract__c</field>
+            <value>
+                <elementReference>Get_Booking_Form_Fee_Definitions.Artist_Fee_Definition__r.Flight_Requirements__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>$Record.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Flight__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Booking_Form_Fee_Definitions</targetReference>
+        </connector>
+        <filterFormula>ISCHANGED({!$Record.Flights__c})
+&amp;&amp;
+NOT(ISBLANK({!$Record.Flights__c}))
+&amp;&amp;
+OR({!$Record.Flights__r.Name}!={!$Record.Name},ISBLANK({!$Record.Flights__r.Description_for_Contract__c}))</filterFormula>
+        <object>Booking_Form__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

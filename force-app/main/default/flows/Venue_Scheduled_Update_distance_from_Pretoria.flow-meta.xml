@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Runs daily on towns where the distance from Pretoria is not filled in</description>
+    <environments>Default</environments>
+    <interviewLabel>Venue - Scheduled - Update distance from Pretoria {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Venue - Scheduled - Update distance from Pretoria</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the distance record</description>
+        <name>Get_Distance_from_Pretoria</name>
+        <label>Get Distance from Pretoria</label>
+        <locationX>176</locationX>
+        <locationY>360</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Distance_from_Pretoria</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Starting_Town__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Town__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Destination__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Pretoria_Town_Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Town_Distance__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Driving_Distance_Km__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the Town Record for Pretoria</description>
+        <name>Get_Pretoria_Town_Record</name>
+        <label>Get Pretoria Town Record</label>
+        <locationX>176</locationX>
+        <locationY>252</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Distance_from_Pretoria</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pretoria</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Town__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Updates the venue&apos;s distance from Pretoria</description>
+        <name>Update_Distance_from_Pretoria</name>
+        <label>Update Distance from Pretoria</label>
+        <locationX>176</locationX>
+        <locationY>468</locationY>
+        <inputAssignments>
+            <field>Distance_from_Pretoria_Km__c</field>
+            <value>
+                <elementReference>Get_Distance_from_Pretoria.Driving_Distance_Km__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Pretoria_Town_Record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Distance_from_Pretoria_Km__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Town__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Venue__c</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2024-04-29</startDate>
+            <startTime>20:19:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

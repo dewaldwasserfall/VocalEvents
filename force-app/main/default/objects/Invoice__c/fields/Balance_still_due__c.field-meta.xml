@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Balance_still_due__c</fullName>
+    <description>The Balance Still Owing for this Performance</description>
+    <formula>IF(ISBLANK(Deposit_Paid__c),
+  ((Subtotal__c - Discount_Amount__c - Credit_Notes__c) * (1 - Deposit__c)) + 
+  (((Subtotal__c - Discount_Amount__c - Credit_Notes__c) * (1 - Deposit__c)) * VAT__c) - 
+  Balances_Received__c, Total_Incl_VAT__c-Balances_Received__c- Deposits_Received__c 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Balance still due</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Commission + Any Expenses paid by Vocal Evants --></help>
+    <label><!-- Total Owed to VE --></label>
+    <name>Total_Owed_to_VE__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Booking_Form_2__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>Booking Form 2</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>The Booking Form Artist should match the Relation Record Artist</errorMessage>
+        <filterItems>
+            <field>$Source.Artist__c</field>
+            <operation>equals</operation>
+            <valueField>Booking_Form__c.Artist__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Booking_Form__c</referenceTo>
+    <relationshipLabel>Booking Distance Relations (Booking Form 2)</relationshipLabel>
+    <relationshipName>Booking_Distance_Relations1</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

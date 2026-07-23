@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The person booking the event --></help>
+    <label><!-- Organiser --></label>
+    <lookupFilter>
+        <errorMessage><!-- Please select an Organiser, or create a new one --></errorMessage>
+    </lookupFilter>
+    <name>Organiser__c</name>
+    <relationshipLabel><!-- Booking Forms (Organiser) --></relationshipLabel>
+</CustomFieldTranslation>

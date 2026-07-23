@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Projected course of the event (please describe briefly). For example, will there be announcements/speeches (indicate by whom and in what capacity) before the performance? If you plan a pre-program, it must first be discussed with the Manager. Will refreshments be served? Please elaborate --></help>
+    <label><!-- Event Agenda --></label>
+    <name>Event_Agenda__c</name>
+</CustomFieldTranslation>

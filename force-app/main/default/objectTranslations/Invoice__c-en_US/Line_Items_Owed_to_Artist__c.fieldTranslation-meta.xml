@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- A rollup of all Line Items still owed to the Artist --></help>
+    <label><!-- Line Items Owed to Artist --></label>
+    <name>Line_Items_Owed_to_Artist__c</name>
+</CustomFieldTranslation>

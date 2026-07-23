@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Is breakfast incuded ? --></label>
+    <name>Is_breakfast_incuded__c</name>
+    <picklistValues>
+        <masterLabel>Ja</masterLabel>
+        <translation><!-- Ja --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nee</masterLabel>
+        <translation><!-- Nee --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>LIFT Airlines</fullName>
+        <default>false</default>
+        <label>LIFT Airlines</label>
+    </customValue>
+    <customValue>
+        <fullName>Flysafair</fullName>
+        <default>false</default>
+        <label>Flysafair</label>
+    </customValue>
+    <customValue>
+        <fullName>South African Airways</fullName>
+        <default>false</default>
+        <label>South African Airways</label>
+    </customValue>
+    <customValue>
+        <fullName>Airlink</fullName>
+        <default>false</default>
+        <label>Airlink</label>
+    </customValue>
+    <customValue>
+        <fullName>CemAir</fullName>
+        <default>false</default>
+        <label>CemAir</label>
+    </customValue>
+    <customValue>
+        <fullName>British airways</fullName>
+        <default>false</default>
+        <label>British airways</label>
+    </customValue>
+    <customValue>
+        <fullName>Kulula</fullName>
+        <default>false</default>
+        <label>Kulula</label>
+    </customValue>
+    <customValue>
+        <fullName>Emirates</fullName>
+        <default>false</default>
+        <label>Emirates</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>Airlines</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

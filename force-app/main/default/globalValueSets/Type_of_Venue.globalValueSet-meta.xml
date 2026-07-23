@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Binne</fullName>
+        <default>true</default>
+        <label>Binne</label>
+    </customValue>
+    <customValue>
+        <fullName>Buitelug</fullName>
+        <default>false</default>
+        <label>Buitelug</label>
+    </customValue>
+    <masterLabel>Type of Venue</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

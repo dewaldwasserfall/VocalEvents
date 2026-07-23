@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travel_fee_not_Applicable__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Check this box if travel fees do not apply for this performance, eg a doordeal show.</inlineHelpText>
+    <label>Travel fee not Applicable</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

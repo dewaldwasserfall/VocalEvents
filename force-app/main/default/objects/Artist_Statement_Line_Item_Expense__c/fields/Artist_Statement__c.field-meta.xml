@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Artist_Statement__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>The Artist Statement this Expense is related to</inlineHelpText>
+    <label>Artist Statement</label>
+    <referenceTo>Artist_Statement__c</referenceTo>
+    <relationshipLabel>Artist Statement Line Item Expenses</relationshipLabel>
+    <relationshipName>Artist_Statement_Line_Item_Expenses</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

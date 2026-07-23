@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Only fill this in if the Deposit received is different from the expected Deposit Amount --></help>
+    <label><!-- Deposit Amount Received --></label>
+    <name>Deposit_Amount_Received__c</name>
+</CustomFieldTranslation>

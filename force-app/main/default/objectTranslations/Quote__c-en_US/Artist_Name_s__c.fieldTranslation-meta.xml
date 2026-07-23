@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Contains a List f Artists Contained in this Quote --></help>
+    <label><!-- Artist Name(s) --></label>
+    <name>Artist_Name_s__c</name>
+</CustomFieldTranslation>

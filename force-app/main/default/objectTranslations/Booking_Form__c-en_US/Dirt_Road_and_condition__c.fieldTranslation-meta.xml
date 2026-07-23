@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Will the Artist and crew need to travel on a dirt road, and if so, in what condition is the road ? --></help>
+    <label><!-- Dirt Road and condition --></label>
+    <name>Dirt_Road_and_condition__c</name>
+</CustomFieldTranslation>

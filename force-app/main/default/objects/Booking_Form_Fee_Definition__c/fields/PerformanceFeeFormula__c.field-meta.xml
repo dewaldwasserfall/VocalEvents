@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PerformanceFeeFormula__c</fullName>
+    <formula>Artist_Fee_Definition__r.Price__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is an indication of what the fee should be. The actual fee is taken from the Peformance Fee currency field and rolled up to the booking form</inlineHelpText>
+    <label>PerformanceFeeFormula</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

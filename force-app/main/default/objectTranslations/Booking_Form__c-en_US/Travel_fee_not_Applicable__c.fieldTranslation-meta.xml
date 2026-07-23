@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Check this box if travel fees do not apply for this performance, eg a doordeal show. --></help>
+    <label><!-- Travel fee not Applicable --></label>
+    <name>Travel_fee_not_Applicable__c</name>
+</CustomFieldTranslation>

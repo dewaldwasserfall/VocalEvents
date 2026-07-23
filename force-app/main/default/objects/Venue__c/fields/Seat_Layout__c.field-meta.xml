@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Seat_Layout__c</fullName>
+    <label>Seat Layout</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Tafels</fullName>
+                <default>false</default>
+                <label>Tafels</label>
+            </value>
+            <value>
+                <fullName>Teaterstyl</fullName>
+                <default>false</default>
+                <label>Teaterstyl</label>
+            </value>
+            <value>
+                <fullName>Ander</fullName>
+                <default>false</default>
+                <label>Ander</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

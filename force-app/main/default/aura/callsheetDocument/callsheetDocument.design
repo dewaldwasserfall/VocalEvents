@@ -1,0 +1,3 @@
+<design:component>
+    <!-- No need to expose recordId in the design file -->
+</design:component>

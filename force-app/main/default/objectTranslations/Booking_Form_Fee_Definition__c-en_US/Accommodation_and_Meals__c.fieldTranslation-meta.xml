@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Amount of People requiring Accommodation and Meals --></help>
+    <label><!-- Accommodation and Meals --></label>
+    <name>Accommodation_and_Meals__c</name>
+</CustomFieldTranslation>

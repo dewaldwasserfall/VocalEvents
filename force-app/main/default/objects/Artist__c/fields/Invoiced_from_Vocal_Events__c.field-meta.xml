@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoiced_from_Vocal_Events__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>This Artist does not send their own Invoices, Vocal Events Invoices on their behalf</inlineHelpText>
+    <label>Invoiced from Vocal Events</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

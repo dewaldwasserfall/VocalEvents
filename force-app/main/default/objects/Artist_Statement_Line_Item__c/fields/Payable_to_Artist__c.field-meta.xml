@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payable_to_Artist__c</fullName>
+    <formula>Performance_Fee__c 
+	+  IF(NOT(Artist_Statement__r.Artist__r.Name  = &apos;Jakkals Vibes Performer&apos;),Expenses__c,0)
+	+  Travel_Fee__c 
+	+  Technical_Fee__c 
+	-  Vocal_Events_Commission__c 
+	-  Expenses_Paid_by_VE__c 
+	-  Record_Company_Commission__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Payable to Artist</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

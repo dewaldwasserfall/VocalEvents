@@ -1,0 +1,71 @@
+{
+  "appPageId" : "0a72e0b0-bcb0-4d19-8694-7b628c1f2188",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "8e5950a8-0b94-412f-aea9-fedce2196024",
+  "label" : "Unsubscribe",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "474a05bc-f020-48da-bab2-553e29096fb7",
+          "columns" : [ {
+            "UUID" : "6ccb22b3-ff1b-4059-9f36-f5000893375d",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "474a05bc-f020-48da-bab2-553e29096fb7",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "flowArguments" : "[{\"label\":\"varEmailAddress\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!varEmailAddress}\"}]",
+            "flowName" : "Lead_Screenflow_Unsubscribe_Lead"
+          },
+          "componentName" : "forceCommunity:flowCommunity",
+          "id" : "c388ae5f-5fea-40cc-9ce4-595641715178",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "6ccb22b3-ff1b-4059-9f36-f5000893375d",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "85a14377-2983-42f2-9c53-b32f80519fc3",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Unsubscribe"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "03b6d5f0-66a5-43ae-ac90-72f28716dc8a",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0e528a0d-95af-4380-aa17-c733b1b0c5a8",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-unsubscribe"
+}

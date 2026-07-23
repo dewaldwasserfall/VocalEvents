@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- eg Birthday, Festival, Fundraiser etc --></help>
+    <label><!-- Nature of Function --></label>
+    <name>Nature_of_Function__c</name>
+</CustomFieldTranslation>

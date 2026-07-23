@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Adds the Amount of the Line item to the total</description>
+        <name>Add_Amount_to_Total</name>
+        <label>Add Amount to Total</label>
+        <locationX>264</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>OUT_TotalAmount</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Loop_over_extra_lines.Price__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_over_extra_lines</targetReference>
+        </connector>
+    </assignments>
+    <description>Calculates the total from a collection of extra line items</description>
+    <environments>Default</environments>
+    <interviewLabel>Subflow - Calculate Extra Line Item Total {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Subflow - Calculate Extra Line Item Total</label>
+    <loops>
+        <description>Loops over the extra line items</description>
+        <name>Loop_over_extra_lines</name>
+        <label>Loop over extra lines</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <collectionReference>IN_ExtraLineItems</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Add_Amount_to_Total</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Loop_over_extra_lines</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>IN_ExtraLineItems</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Extra_Line_Item__c</objectType>
+    </variables>
+    <variables>
+        <name>OUT_TotalAmount</name>
+        <dataType>Currency</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

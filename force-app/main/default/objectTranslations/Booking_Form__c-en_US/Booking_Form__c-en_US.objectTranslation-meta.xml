@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Booking Form</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Booking Forms</value>
+    </caseValues>
+    <layouts>
+        <layout>Booking Form Layout</layout>
+        <sections>
+            <label><!-- Accommodation and meals --></label>
+            <section>Accommodation and meals</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Final Quote Values --></label>
+            <section>Final Quote Values</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Information --></label>
+            <section>Financial Information</section>
+        </sections>
+        <sections>
+            <label><!-- Technical Information --></label>
+            <section>Technical Information</section>
+        </sections>
+        <sections>
+            <label><!-- Ticket Information --></label>
+            <section>Ticket Information</section>
+        </sections>
+        <sections>
+            <label><!-- Travel information --></label>
+            <section>Travel information</section>
+        </sections>
+        <sections>
+            <label><!-- Venue and Performance Information --></label>
+            <section>Venue and Performance Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Apply Discount --></label>
+        <name>Apply_Discount</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Clone Booking Form --></label>
+        <name>Clone_Booking_Form</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Convert to Doordeal --></label>
+        <name>Convert_to_Doordeal</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Invoice --></label>
+        <name>Create_Invoice</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Preview and Send Callsheet --></label>
+        <name>Preview_and_Send_Callsheet</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send Callsheet Link --></label>
+        <name>Send_Callsheet_Link</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send Contract Form Link --></label>
+        <name>Send_Contract_Form_Link</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Sync Callsheet --></label>
+        <name>Sync_Callsheet</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Quote</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Quotes</value>
+    </caseValues>
+    <layouts>
+        <layout>Generic Quote Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Information --></label>
+            <section>Financial Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Quote Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Information --></label>
+            <section>Financial Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Create Invoices --></label>
+        <name>Create_Invoices</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Preview and Send Quote --></label>
+        <name>Preview_and_Send_Quote</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Send Booking From Link --></label>
+        <name>Send_Booking_From_Link</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- Used for creating quick quotes using Artist Fee Definitions --></description>
+        <label><!-- Quick Quote --></label>
+        <name>Quick_Quote</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Used for creating standard quotes using quote line items --></description>
+        <label><!-- Standard Quote --></label>
+        <name>Standard_Quote</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

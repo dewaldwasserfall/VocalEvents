@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- In case the Organiser is unavailable --></help>
+    <label><!-- Secondary Contact Person --></label>
+    <lookupFilter>
+        <errorMessage><!-- Please add an Organiser Contact --></errorMessage>
+    </lookupFilter>
+    <name>Secondary_Contact_Person__c</name>
+    <relationshipLabel><!-- Booking Forms (Secondary Contact Person) --></relationshipLabel>
+</CustomFieldTranslation>

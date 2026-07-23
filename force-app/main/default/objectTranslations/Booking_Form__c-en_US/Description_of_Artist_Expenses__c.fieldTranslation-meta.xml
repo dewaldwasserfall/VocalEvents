@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Description of the expenses incurred by the artist --></help>
+    <label><!-- Description of Artist Expenses --></label>
+    <name>Description_of_Artist_Expenses__c</name>
+</CustomFieldTranslation>

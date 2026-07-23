@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VAT__c</fullName>
+    <formula>IF(Artist__r.Charges_VAT__c,
+Total_Excl_VAT__c *  
+IF(CreatedDate &lt; DATETIMEVALUE(DATE(2025, 5, 1)),
+$Setup.VocalEventsSettings__c.VAT__c,
+$Setup.VocalEventsSettings__c.VAT_Post_May_2025__c ),0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>VAT</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

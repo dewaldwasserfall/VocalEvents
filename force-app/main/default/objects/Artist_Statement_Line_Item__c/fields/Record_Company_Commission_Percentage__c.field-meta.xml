@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Record_Company_Commission_Percentage__c</fullName>
+    <description>Because lookup fields can&apos;t be used in Roll Up Summaries, this field holds the record company commission value for the Artist</description>
+    <label>Record Company Commission [Percentage]</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

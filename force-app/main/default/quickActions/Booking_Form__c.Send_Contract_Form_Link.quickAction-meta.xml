@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Sends a contract form link to the client</description>
+    <flowDefinition>Booking_Form_Screenflow_Send_Booking_Form_Link</flowDefinition>
+    <label>Send Contract Form Link</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

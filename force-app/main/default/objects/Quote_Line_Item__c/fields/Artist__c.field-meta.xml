@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Artist__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <inlineHelpText>The Artist related to this Line Item</inlineHelpText>
+    <label>Artist</label>
+    <referenceTo>Artist__c</referenceTo>
+    <relationshipLabel>Quote Line_Item</relationshipLabel>
+    <relationshipName>Quote_Line_Item</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

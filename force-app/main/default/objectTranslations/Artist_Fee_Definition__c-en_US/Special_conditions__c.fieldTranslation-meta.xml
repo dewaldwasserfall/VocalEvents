@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Any special conditions that apply to this fee definition --></help>
+    <label><!-- Special conditions --></label>
+    <name>Special_conditions__c</name>
+</CustomFieldTranslation>

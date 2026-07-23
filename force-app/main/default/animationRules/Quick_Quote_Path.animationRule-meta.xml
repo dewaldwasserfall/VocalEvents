@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnimationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <animationFrequency>always</animationFrequency>
+    <developerName>Quick_Quote_Path</developerName>
+    <isActive>true</isActive>
+    <masterLabel>Quick Quote Path</masterLabel>
+    <recordTypeContext>Custom</recordTypeContext>
+    <recordTypeName>Quick_Quote</recordTypeName>
+    <sobjectType>Quote__c</sobjectType>
+    <targetField>Stage__c</targetField>
+    <targetFieldChangeToValues>Approved</targetFieldChangeToValues>
+</AnimationRule>

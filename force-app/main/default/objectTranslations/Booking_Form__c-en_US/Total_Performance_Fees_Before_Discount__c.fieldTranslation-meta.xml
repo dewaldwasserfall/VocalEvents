@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The total performance fee for all dates associated with this booking fee. The amount is rolled up from the Booking Form Fee Definitions --></help>
+    <label><!-- Total Performance Fees (Before Discount) --></label>
+    <name>Total_Performance_Fees_Before_Discount__c</name>
+</CustomFieldTranslation>

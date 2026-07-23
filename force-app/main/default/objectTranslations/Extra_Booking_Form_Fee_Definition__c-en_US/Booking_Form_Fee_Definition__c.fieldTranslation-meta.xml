@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Booking Form Fee Definition --></label>
+    <name>Booking_Form_Fee_Definition__c</name>
+    <relationshipLabel><!-- Extra Booking Form Fee Definitions --></relationshipLabel>
+</CustomFieldTranslation>

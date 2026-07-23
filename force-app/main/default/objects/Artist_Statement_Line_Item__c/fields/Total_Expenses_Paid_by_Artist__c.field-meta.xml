@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Expenses_Paid_by_Artist__c</fullName>
+    <inlineHelpText>The total expenses not paid by VE</inlineHelpText>
+    <label>Total Expenses Paid by Artist</label>
+    <summarizedField>Artist_Statement_Line_Item_Expense__c.Amount__c</summarizedField>
+    <summaryFilterItems>
+        <field>Artist_Statement_Line_Item_Expense__c.Paid_by_VE__c</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Artist_Statement_Line_Item_Expense__c.Artist_Statement_Line_Item__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

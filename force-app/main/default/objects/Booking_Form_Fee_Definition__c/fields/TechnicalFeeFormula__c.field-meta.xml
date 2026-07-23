@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TechnicalFeeFormula__c</fullName>
+    <formula>IF(ISPICKVAL( Booking_Form__r.Sound_supplied_by__c,&apos;Kunstenaar&apos;),
+IF(ISPICKVAL(Booking_Form__r.Amount_of_People__c,&apos;1 - 500&apos;),
+				 Artist_Fee_Definition__r.Technical_1_500_people__c,   Artist_Fee_Definition__r.Technical_501_1000_people__c),0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>This is an indication of what the technical fee should be. The actual fee is saved in the Technical Fee Currency field and rolled up to the Booking form</inlineHelpText>
+    <label>TechnicalFeeFormula</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the VAT flag according to the Artist settings</description>
+        <name>Set_VAT</name>
+        <label>Set VAT</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.VAT_Applicable__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Artist__r.Charges_VAT__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Sets the VAT flag when the Booking Form is created</description>
+    <environments>Default</environments>
+    <interviewLabel>Booking Form - RT - Set VAT Flag {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Booking Form - RT - Set VAT Flag</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Set_VAT</targetReference>
+        </connector>
+        <object>Booking_Form__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

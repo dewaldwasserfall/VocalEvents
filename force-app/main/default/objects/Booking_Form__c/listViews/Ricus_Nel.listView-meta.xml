@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ricus_Nel</fullName>
+    <columns>NAME</columns>
+    <columns>Date_of_Performance__c</columns>
+    <columns>Deposit_Paid__c</columns>
+    <columns>Date_Contract_Signed__c</columns>
+    <columns>Balance_Paid__c</columns>
+    <columns>Stage__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Artist__c</field>
+        <operation>equals</operation>
+        <value>Ricus Nel</value>
+    </filters>
+    <filters>
+        <field>Stage__c</field>
+        <operation>notEqual</operation>
+        <value>Completed</value>
+    </filters>
+    <label>Ricus Nel</label>
+</ListView>

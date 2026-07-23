@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Excl_VAT__c</fullName>
+    <description>The total of the quick quote line item excluding VAT. Includes Performance Fee, Artist and Technical Travel, Technical Fee (If Technical Fee is Included in Quote)</description>
+    <formula>Artist_Fee_Definition__r.Price__c +  Travel_Fee_Artist__c + 
+IF( Quote__r.Include_Extras__c, Total_Artist_Extras__c +  Total_Technical_Extras__c,0) +
+IF(Quote__r.Include_Technical_fee__c,
+IF( Artist__r.Travels_Alone__c, Travel_Fee_Technical__c ,0),0) +
+IF(Quote__r.Include_Technical_fee__c,
+IF(ISPICKVAL(Quote__r.Amount_of_People__c,&apos;1 - 500&apos;), Artist_Fee_Definition__r.Technical_1_500_people__c, Artist_Fee_Definition__r.Technical_501_1000_people__c ),0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Excl VAT</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

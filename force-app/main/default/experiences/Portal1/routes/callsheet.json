@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "7f3987a5-8b9a-4a6b-bf8a-5c4294f10915",
+  "appPageId" : "0a72e0b0-bcb0-4d19-8694-7b628c1f2188",
+  "configurationTags" : [ ],
+  "devName" : "callsheet__c",
+  "id" : "913ba985-7abc-417e-966d-2a2ea1af0db8",
+  "label" : "Callsheet",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-callsheet",
+  "type" : "route",
+  "urlPrefix" : "callsheet"
+}

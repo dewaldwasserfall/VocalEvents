@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Links_to_Tech_Riders_Band__c</fullName>
+    <inlineHelpText>Add the links to the Artist&apos;s Band Technical Rider Here</inlineHelpText>
+    <label>Links to Tech Riders (Band)</label>
+    <length>32768</length>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

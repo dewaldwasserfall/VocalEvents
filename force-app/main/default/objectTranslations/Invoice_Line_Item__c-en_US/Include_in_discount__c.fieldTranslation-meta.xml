@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Include in discount --></label>
+    <name>Include_in_discount__c</name>
+</CustomFieldTranslation>

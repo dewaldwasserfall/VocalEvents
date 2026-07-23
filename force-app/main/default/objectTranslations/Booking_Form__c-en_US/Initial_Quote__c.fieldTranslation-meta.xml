@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Quote that initiated this Booking Form --></help>
+    <label><!-- Initial Quote --></label>
+    <name>Initial_Quote__c</name>
+    <relationshipLabel><!-- Booking Forms --></relationshipLabel>
+</CustomFieldTranslation>

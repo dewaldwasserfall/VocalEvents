@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Charges_VAT__c</fullName>
+    <defaultValue>true</defaultValue>
+    <inlineHelpText>This is unchecked if the Artist does not charge VAT. Quotes for this Artist will not include VAT and Booking Forms for this Artist will be defaulted to Non-VAT on creation</inlineHelpText>
+    <label>Charges VAT</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

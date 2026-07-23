@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentAsset xmlns="http://soap.sforce.com/2006/04/metadata">
+    <isVisibleByExternalUsers>true</isVisibleByExternalUsers>
+    <language>en_US</language>
+    <masterLabel>VOCAL_EVENTS_SPEAKERS_2025_UPDATEDp</masterLabel>
+    <versions>
+        <version>
+            <number>1</number>
+            <pathOnClient>VOCAL EVENTS SPEAKERS 2025 UPDATED.pdf Maart_page4_image1.png</pathOnClient>
+        </version>
+    </versions>
+</ContentAsset>

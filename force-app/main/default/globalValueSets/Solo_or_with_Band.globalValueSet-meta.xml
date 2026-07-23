@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Band</fullName>
+        <default>true</default>
+        <label>Band</label>
+    </customValue>
+    <customValue>
+        <fullName>Solo</fullName>
+        <default>false</default>
+        <label>Solo</label>
+    </customValue>
+    <masterLabel>Solo or with Band</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

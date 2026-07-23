@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Checks the Invoice Record Type</description>
+        <name>Invoice_Record_Type</name>
+        <label>Invoice Record Type</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Update_Account_Last_Invoice_Number</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Credit_Note</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Credit_Note</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Account_Credit_Note_Number</targetReference>
+            </connector>
+            <label>Credit Note</label>
+        </rules>
+    </decisions>
+    <description>Adds 1 to the Invoice From Account&apos;s Next Invoice Number</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fmNextCreditNoteNumber</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.Invoice_From_Account__r.Next_Credit_Note_Number__c}+1</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>fmNextInvoiceNumber</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.Invoice_From_Account__r.Next_Invoice_Number__c}+1</expression>
+        <scale>0</scale>
+    </formulas>
+    <interviewLabel>Invoice - RT - Increment Account Invoice No {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Invoice - RT - Increment Account Invoice No</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Increments the Account Next Invoice Number</description>
+        <name>Update_Account_Credit_Note_Number</name>
+        <label>Update Account Credit Note Number</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Invoice_From_Account__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Next_Credit_Note_Number__c</field>
+            <value>
+                <elementReference>fmNextCreditNoteNumber</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the Last Invoice number on the Invoice From Account</description>
+        <name>Update_Account_Last_Invoice_Number</name>
+        <label>Update Account Last Invoice Number</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Invoice_From_Account__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Next_Invoice_Number__c</field>
+            <value>
+                <elementReference>fmNextInvoiceNumber</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Invoice_Record_Type</targetReference>
+        </connector>
+        <filterFormula>{!$Record.RecordType.DeveloperName}!=&apos;Statement&apos;</filterFormula>
+        <object>Invoice__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

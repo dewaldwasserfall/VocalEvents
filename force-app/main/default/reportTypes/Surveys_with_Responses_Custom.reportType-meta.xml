@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>Survey__c</baseObject>
+    <category>admin</category>
+    <deployed>true</deployed>
+    <description>Custom report type that gives access to fields via Lookup</description>
+    <join>
+        <outerJoin>false</outerJoin>
+        <relationship>Survey_Responses__r</relationship>
+    </join>
+    <label>Surveys with Responses (Custom)</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Survey ID</displayNameOverride>
+            <field>Id</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Owner</displayNameOverride>
+            <field>Owner</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Survey Name</displayNameOverride>
+            <field>Name</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created Date</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created By</displayNameOverride>
+            <field>CreatedBy</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified Date</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified By</displayNameOverride>
+            <field>LastModifiedBy</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Booking Form</displayNameOverride>
+            <field>Booking_Form__c</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Completed Date</displayNameOverride>
+            <field>Completed_Date__c</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>General Feedback</displayNameOverride>
+            <field>General_Feedback__c</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status</displayNameOverride>
+            <field>Status__c</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Artist</displayNameOverride>
+            <field>Artist__c</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Score</displayNameOverride>
+            <field>Total_Score__c</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Total Responses</displayNameOverride>
+            <field>Total_Responses__c</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Average Score</displayNameOverride>
+            <field>Average_Score__c</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Survey : Booking Form : Agent</displayNameOverride>
+            <field>Booking_Form__c.Agent__c</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Survey : Booking Form : Organiser</displayNameOverride>
+            <field>Booking_Form__c.Organiser__c</field>
+            <table>Survey__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Booking_Form__c.Artist__c.Id</field>
+            <table>Survey__c</table>
+        </columns>
+        <masterLabel>Surveys</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Survey Response ID</displayNameOverride>
+            <field>Id</field>
+            <table>Survey__c.Survey_Responses__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <displayNameOverride>Survey Response Name</displayNameOverride>
+            <field>Name</field>
+            <table>Survey__c.Survey_Responses__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created Date</displayNameOverride>
+            <field>CreatedDate</field>
+            <table>Survey__c.Survey_Responses__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Created By</displayNameOverride>
+            <field>CreatedBy</field>
+            <table>Survey__c.Survey_Responses__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified Date</displayNameOverride>
+            <field>LastModifiedDate</field>
+            <table>Survey__c.Survey_Responses__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Last Modified By</displayNameOverride>
+            <field>LastModifiedBy</field>
+            <table>Survey__c.Survey_Responses__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Question</displayNameOverride>
+            <field>Question__c</field>
+            <table>Survey__c.Survey_Responses__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Score</displayNameOverride>
+            <field>Score__c</field>
+            <table>Survey__c.Survey_Responses__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Notes</displayNameOverride>
+            <field>Notes__c</field>
+            <table>Survey__c.Survey_Responses__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Answer</displayNameOverride>
+            <field>Answer__c</field>
+            <table>Survey__c.Survey_Responses__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Score (%)</displayNameOverride>
+            <field>Score_Percent__c</field>
+            <table>Survey__c.Survey_Responses__r</table>
+        </columns>
+        <masterLabel>Survey Responses</masterLabel>
+    </sections>
+</ReportType>

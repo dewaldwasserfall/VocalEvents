@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travel_Fee_Technical__c</fullName>
+    <formula>IF(Artist_Fee_Definition__r.Artist__r.Travels_Alone__c, 
+ Travel_Fee_Artist__c,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>If the Artist Travels alone, Technical Travel fee applies.</inlineHelpText>
+    <label>Travel Fee (Technical)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

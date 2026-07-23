@@ -1,0 +1,71 @@
+{
+  "appPageId" : "0a72e0b0-bcb0-4d19-8694-7b628c1f2188",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "355771b2-cc95-4cce-8618-6bef97665ce2",
+  "label" : "Availability",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 80,
+        "sectionConfig" : {
+          "UUID" : "1c833576-0938-46e9-9325-81b8fd59cb87",
+          "columns" : [ {
+            "UUID" : "fcce20c2-f739-4f93-9831-65462971c527",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "1c833576-0938-46e9-9325-81b8fd59cb87",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "flowArguments" : "",
+            "flowName" : "Booking_Form_Screenflow_Check_Availability"
+          },
+          "componentName" : "forceCommunity:flowCommunity",
+          "id" : "bc4a7fe1-f904-4bbb-a11d-c9379615f579",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "fcce20c2-f739-4f93-9831-65462971c527",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e3510ca2-1fe1-4506-9940-9cf0432da92f",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Availability"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "11b8d3ef-4f05-41bc-b153-0673021fff80",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5208ae3d-6577-4de1-a400-14a56d6e917c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-availability"
+}

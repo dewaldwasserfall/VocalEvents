@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Booking Form 2 --></label>
+    <lookupFilter>
+        <errorMessage><!-- The Booking Form Artist should match the Relation Record Artist --></errorMessage>
+    </lookupFilter>
+    <name>Booking_Form_2__c</name>
+    <relationshipLabel><!-- Booking Distance Relations (Booking Form 2) --></relationshipLabel>
+</CustomFieldTranslation>

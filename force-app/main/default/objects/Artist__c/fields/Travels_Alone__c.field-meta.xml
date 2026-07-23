@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Travels_Alone__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>If the Artist supplies Sound, the Artist travels separate from the Technical Crew</inlineHelpText>
+    <label>Travels Alone</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

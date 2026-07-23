@@ -1,0 +1,71 @@
+{
+  "appPageId" : "0a72e0b0-bcb0-4d19-8694-7b628c1f2188",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "054a286a-34a2-4953-90a3-43cc9941da4e",
+  "label" : "Contract Form",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 80,
+        "sectionConfig" : {
+          "UUID" : "de315744-b879-411e-bff3-79f02e7666d5",
+          "columns" : [ {
+            "UUID" : "b125cff6-e43e-4a4d-b9f7-6eea16e6f781",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "de315744-b879-411e-bff3-79f02e7666d5",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "flowArguments" : "[{\"label\":\"varBookingForm\",\"dataType\":\"String\",\"supportsRecordId\":false,\"value\":\"{!varBookingForm}\"}]",
+            "flowName" : "Booking_Form_Screenflow_Update_Booking_Form"
+          },
+          "componentName" : "forceCommunity:flowCommunity",
+          "id" : "0149cab3-bdf8-43e8-be7e-6d7e77231883",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "b125cff6-e43e-4a4d-b9f7-6eea16e6f781",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e7f83677-0f23-41da-be26-269c6c40f50b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Contract Form"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "76a64659-0eb5-4a60-bedc-2c934b597049",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "56dc88fb-d95d-477c-bf4d-b998968770e1",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-contract-form"
+}

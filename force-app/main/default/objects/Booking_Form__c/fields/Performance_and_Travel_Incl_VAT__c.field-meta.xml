@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Performance_and_Travel_Incl_VAT__c</fullName>
+    <formula>IF( VAT_Applicable__c,
+((Performance_Fee__c + Artist_Travel_Costs__c)*$Setup.VocalEventsSettings__c.VAT__c  )+(Performance_Fee__c + Artist_Travel_Costs__c),
+			Performance_Fee__c + Artist_Travel_Costs__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The Total Performance and Travel Fee Incl VAT</inlineHelpText>
+    <label>Performance and Travel Incl VAT</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

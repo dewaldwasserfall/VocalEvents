@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- This is the amount eligible for Nadia&apos;s commission after expenses --></help>
+    <label><!-- Eligible Performance Fee --></label>
+    <name>Eligible_Performance_Fee__c</name>
+</CustomFieldTranslation>

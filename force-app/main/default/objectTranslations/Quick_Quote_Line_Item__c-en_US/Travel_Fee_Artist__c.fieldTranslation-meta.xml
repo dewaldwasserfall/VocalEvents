@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Travel fee for the Artist --></help>
+    <label><!-- Travel Fee (Artist) --></label>
+    <name>Travel_Fee_Artist__c</name>
+</CustomFieldTranslation>

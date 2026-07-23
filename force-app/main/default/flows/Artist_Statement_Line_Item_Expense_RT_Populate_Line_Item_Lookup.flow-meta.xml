@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assigns the Line Item Id to the expense</description>
+        <name>Assign_Line_Item_Id</name>
+        <label>Assign Line Item Id</label>
+        <locationX>176</locationX>
+        <locationY>395</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Artist_Statement_Line_Item__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Matching_Line_Item.Id</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Inserts the matching line item Id before the Expense line item is created</description>
+    <environments>Default</environments>
+    <interviewLabel>Artist Statement Line Item Expense - RT - Populate Line Item Lookup {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Artist Statement Line Item Expense - RT - Populate Line Item Lookup</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the Matching Line Item</description>
+        <name>Get_Matching_Line_Item</name>
+        <label>Get Matching Line Item</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Line_Item_Id</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Artist_Statement__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Artist_Statement__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Matching_Number__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Matching_Number__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Artist_Statement_Line_Item__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Matching_Line_Item</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Artist_Statement_Line_Item__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Artist_Statement__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Artist_Statement_Line_Item_Expense__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

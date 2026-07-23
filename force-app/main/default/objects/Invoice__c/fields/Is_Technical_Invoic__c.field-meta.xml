@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Technical_Invoic__c</fullName>
+    <defaultValue>false</defaultValue>
+    <inlineHelpText>Indicates that this invoice is for technical fees, eg Sound and Lighting</inlineHelpText>
+    <label>Is Technical Invoice</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

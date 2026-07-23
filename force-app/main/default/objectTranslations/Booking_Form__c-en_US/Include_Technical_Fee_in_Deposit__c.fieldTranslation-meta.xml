@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If this box is checked, the Technical fee will also be added to the total before calculating the deposit --></help>
+    <label><!-- Include Technical Fee in Deposit --></label>
+    <name>Include_Technical_Fee_in_Deposit__c</name>
+</CustomFieldTranslation>

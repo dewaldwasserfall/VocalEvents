@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- This is the technical fee for the given date. It is auto-populated via flow but can be adjusted manually --></help>
+    <label><!-- Technical Fee --></label>
+    <name>Technical_Fee__c</name>
+</CustomFieldTranslation>

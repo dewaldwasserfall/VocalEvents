@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The amount the artist charges for technical for 501 - 1000 people --></help>
+    <label><!-- Technical (501 - 1000 people) --></label>
+    <name>Technical_501_1000_people__c</name>
+</CustomFieldTranslation>

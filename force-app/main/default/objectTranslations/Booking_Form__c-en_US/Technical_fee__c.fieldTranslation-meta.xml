@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Final Technical Fee after discounts have been applied --></help>
+    <label><!-- Technical Fee --></label>
+    <name>Technical_fee__c</name>
+</CustomFieldTranslation>

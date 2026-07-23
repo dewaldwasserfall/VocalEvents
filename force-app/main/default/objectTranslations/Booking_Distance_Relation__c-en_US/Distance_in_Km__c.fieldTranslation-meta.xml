@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Distance in Km between the two Performances --></help>
+    <label><!-- Distance in Km --></label>
+    <name>Distance_in_Km__c</name>
+</CustomFieldTranslation>

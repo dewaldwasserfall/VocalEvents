@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- From what time can Artist check in at Accommodation ? --></help>
+    <label><!-- Accommodation Check in Time --></label>
+    <name>Accommodation_Check_in_Time__c</name>
+</CustomFieldTranslation>

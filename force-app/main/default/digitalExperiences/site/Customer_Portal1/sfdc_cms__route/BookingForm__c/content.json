@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "Booking Form",
+  "contentBody" : {
+    "activeViewId" : "Booking_Form",
+    "configurationTags" : [ ],
+    "pageAccess" : "UseParent",
+    "routeType" : "custom-booking-form",
+    "urlPrefix" : "booking-form"
+  },
+  "urlName" : "booking-form"
+}

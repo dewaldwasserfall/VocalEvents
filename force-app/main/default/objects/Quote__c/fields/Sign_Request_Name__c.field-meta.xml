@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sign_Request_Name__c</fullName>
+    <description>The field used by Sign Butler to create the Sign Request Name</description>
+    <externalId>false</externalId>
+    <formula>Quote_To__r.FirstName &amp;&quot; &quot;&amp;Quote_To__r.LastName&amp;&quot; - &quot;&amp; Town_or_City__r.Name &amp;&quot; (&quot;&amp;Artist_Name_s__c&amp;&quot;)&quot;</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sign Request Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

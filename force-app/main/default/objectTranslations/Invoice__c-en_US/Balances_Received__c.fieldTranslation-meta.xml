@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The Total mount of Balance Payments Received --></help>
+    <label><!-- Balances Received --></label>
+    <name>Balances_Received__c</name>
+</CustomFieldTranslation>

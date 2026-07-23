@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Agent --></label>
+    <lookupFilter>
+        <errorMessage><!-- Only Contacts of type &quot;Agent&quot; may be selected --></errorMessage>
+    </lookupFilter>
+    <name>Agent__c</name>
+    <relationshipLabel><!-- Booking Forms --></relationshipLabel>
+</CustomFieldTranslation>

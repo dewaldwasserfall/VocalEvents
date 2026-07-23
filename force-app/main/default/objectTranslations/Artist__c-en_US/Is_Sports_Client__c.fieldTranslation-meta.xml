@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- This box is checked if the artists is a Sports Personality --></help>
+    <label><!-- Is Sports Client --></label>
+    <name>Is_Sports_Client__c</name>
+</CustomFieldTranslation>

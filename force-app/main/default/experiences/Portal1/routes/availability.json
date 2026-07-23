@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "355771b2-cc95-4cce-8618-6bef97665ce2",
+  "appPageId" : "0a72e0b0-bcb0-4d19-8694-7b628c1f2188",
+  "configurationTags" : [ ],
+  "devName" : "Availability__c",
+  "id" : "89063a2d-dd70-436d-8069-01637a04f47d",
+  "label" : "Availability",
+  "pageAccess" : "Public",
+  "routeType" : "custom-availability",
+  "type" : "route",
+  "urlPrefix" : "availability"
+}

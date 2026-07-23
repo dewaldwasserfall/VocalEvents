@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If the performance has more than 1 date, fill the dates in here to reflect on the contract --></help>
+    <label><!-- Multiple Performance Dates --></label>
+    <name>Multiple_Performance_Dates__c</name>
+</CustomFieldTranslation>

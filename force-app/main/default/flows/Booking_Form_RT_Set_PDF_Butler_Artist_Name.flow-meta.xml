@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the Artist Name for PDF Butler Field</description>
+        <name>Set_PDF_Butler_Field</name>
+        <label>Set PDF Butler Field</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Artist_Name_for_PDF_Butler__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fmArtistName</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Sets the Artist name for PDF butler field on create / edit</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fmArtistName</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+    $Record.Artist__r.Name,
+    &apos;Jo Black&apos;, &apos;JO&apos;,
+    &apos;Hamilton Wessels&apos;, &apos;Hamilton&apos;,
+&apos;Refentse&apos;,&apos;Refentse&apos;,
+&apos;main&apos;
+)</expression>
+    </formulas>
+    <interviewLabel>Booking Form - RT - Set PDF Butler Artist Name {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Booking Form - RT - Set PDF Butler Artist Name</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Set_PDF_Butler_Field</targetReference>
+        </connector>
+        <filterFormula>OR(ISNEW(),ISCHANGED({!$Record.Artist__c}))</filterFormula>
+        <object>Booking_Form__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

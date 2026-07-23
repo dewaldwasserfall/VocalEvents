@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "0a756bec-6c41-433e-b4d9-58fcf5f7b0fc",
+  "appPageId" : "0a72e0b0-bcb0-4d19-8694-7b628c1f2188",
+  "configurationTags" : [ ],
+  "devName" : "BookingForm__c",
+  "id" : "b89beddc-629c-4a9d-af33-f7186b8ec784",
+  "label" : "Booking Form",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-booking-form",
+  "type" : "route",
+  "urlPrefix" : "booking-form"
+}

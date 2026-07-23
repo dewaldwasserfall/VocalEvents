@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Primary Contact --></label>
+    <lookupFilter>
+        <errorMessage><!-- A contact must have the &apos;Technical&apos; checkbox checked to be added here --></errorMessage>
+    </lookupFilter>
+    <name>Primary_Contact__c</name>
+    <relationshipLabel><!-- Technical Suppliers --></relationshipLabel>
+</CustomFieldTranslation>

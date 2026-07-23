@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>O.R. Tambo International Airport (JNB)</fullName>
+        <default>true</default>
+        <label>O.R. Tambo International Airport (JNB)</label>
+    </customValue>
+    <customValue>
+        <fullName>Cape Town International Airport (CPT)</fullName>
+        <default>false</default>
+        <label>Cape Town International Airport (CPT)</label>
+    </customValue>
+    <customValue>
+        <fullName>King Shaka International Airport (DUR)</fullName>
+        <default>false</default>
+        <label>King Shaka International Airport (DUR)</label>
+    </customValue>
+    <customValue>
+        <fullName>Lanseria International Airport (HLA)</fullName>
+        <default>false</default>
+        <label>Lanseria International Airport (HLA)</label>
+    </customValue>
+    <customValue>
+        <fullName>Port Elizabeth International Airport (PLZ)</fullName>
+        <default>false</default>
+        <label>Port Elizabeth International Airport (PLZ)</label>
+    </customValue>
+    <customValue>
+        <fullName>East London Airport (ELS)</fullName>
+        <default>false</default>
+        <label>East London Airport (ELS)</label>
+    </customValue>
+    <customValue>
+        <fullName>Bram Fischer International Airport (BFN)</fullName>
+        <default>false</default>
+        <label>Bram Fischer International Airport (BFN)</label>
+    </customValue>
+    <customValue>
+        <fullName>George Airport (GRJ)</fullName>
+        <default>false</default>
+        <label>George Airport (GRJ)</label>
+    </customValue>
+    <customValue>
+        <fullName>Upington International Airport (UTN)</fullName>
+        <default>false</default>
+        <label>Upington International Airport (UTN)</label>
+    </customValue>
+    <customValue>
+        <fullName>Kimberley Airport (KIM)</fullName>
+        <default>false</default>
+        <label>Kimberley Airport (KIM)</label>
+    </customValue>
+    <customValue>
+        <fullName>Windhoek Hosea Kutako International Airport (WDH)</fullName>
+        <default>false</default>
+        <label>Windhoek Hosea Kutako International Airport (WDH)</label>
+    </customValue>
+    <customValue>
+        <fullName>Walvis Bay International (WVB) Airport</fullName>
+        <default>false</default>
+        <label>Walvis Bay International Airport (WVB)</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>Airports</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

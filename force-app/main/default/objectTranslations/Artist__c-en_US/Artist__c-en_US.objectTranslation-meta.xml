@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Artist</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Artists</value>
+    </caseValues>
+    <layouts>
+        <layout>Artist Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Create Monthly Statement --></label>
+        <name>Create_Monthly_Statement</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Payment to Artist --></label>
+        <name>New_Payment_to_Artist</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- This Artist performs solo or with a band --></description>
+        <label><!-- Solo or Band Artist --></label>
+        <name>Solo_or_Band_Artist</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

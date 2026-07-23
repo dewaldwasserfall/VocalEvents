@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Artist_Name_s__c</columns>
+    <columns>Quote_Agent__c</columns>
+    <columns>Description__c</columns>
+    <columns>Town_or_City__c</columns>
+    <columns>Valid_Until__c</columns>
+    <columns>Stage__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Artist_Name_s__c</field>
+        <operation>equals</operation>
+        <value>Hamilton Wessels</value>
+    </filters>
+    <label>All</label>
+</ListView>

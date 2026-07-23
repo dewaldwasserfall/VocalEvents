@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technical_Travel_Costs__c</fullName>
+    <formula>IF(Include_Technical_Travel_Fee__c,  Artist_Travel_Costs__c, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>The Technical travel fees. If Artist travel with crew, this amount is 0, and all travel costs are paid by die the artist</inlineHelpText>
+    <label>Technical Travel Costs</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

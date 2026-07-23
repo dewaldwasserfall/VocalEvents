@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- This field is only visible when &quot;Other&quot; is selected as a performance duration --></help>
+    <label><!-- Performance Duration (Other) --></label>
+    <name>Performance_Duration_Other__c</name>
+</CustomFieldTranslation>

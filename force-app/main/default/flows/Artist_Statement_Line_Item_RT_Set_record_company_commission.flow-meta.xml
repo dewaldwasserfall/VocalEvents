@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Sets the Commission Percentages for this line item</description>
+        <name>Set_Commisisons</name>
+        <label>Set Commisisons</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Record_Company_Commission_Percentage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Artist_Statement__r.Artist__r.Record_Company_Commission__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Vocal_Events_Commission_Percent__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Artist_Statement__r.Artist__r.Commission__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>When an Artist statement line item is created, this flow sets the record company commission percentage</description>
+    <environments>Default</environments>
+    <interviewLabel>Artist Statement Line Item - RT - Set record company commission {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Artist Statement Line Item - RT - Set record company commission</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Set_Commisisons</targetReference>
+        </connector>
+        <object>Artist_Statement_Line_Item__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

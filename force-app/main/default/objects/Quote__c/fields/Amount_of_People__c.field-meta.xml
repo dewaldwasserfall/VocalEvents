@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amount_of_People__c</fullName>
+    <inlineHelpText>This is required when choosing to display technical fees on the Quote, so that the correct Technical fee is displayed</inlineHelpText>
+    <label>Amount of People</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Amount_of_People</valueSetName>
+    </valueSet>
+</CustomField>

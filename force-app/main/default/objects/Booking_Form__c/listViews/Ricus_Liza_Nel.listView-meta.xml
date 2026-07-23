@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ricus_Liza_Nel</fullName>
+    <columns>NAME</columns>
+    <columns>Date_of_Performance__c</columns>
+    <columns>Deposit_Paid__c</columns>
+    <columns>Date_Contract_Signed__c</columns>
+    <columns>Balance_Paid__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>equals</operation>
+        <value>Ricus Nel + Liza Nel</value>
+    </filters>
+    <label>Ricus &amp; Liza Nel</label>
+</ListView>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Updates the Town to match the toen of the venue</description>
+        <name>Update_Town</name>
+        <label>Update Town</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Town_or_City__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Venue__r.Town__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>When the venue is set or changed, the flow updates the Town field on Booking Form</description>
+    <environments>Default</environments>
+    <interviewLabel>Booking Form - RT - Update Town {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Booking Form - RT - Update Town</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Town</targetReference>
+        </connector>
+        <filterFormula>{!$Record.Town_or_City__c}!={!$Record.Venue__r.Town__c}&amp;&amp;
+NOT(ISBLANK({!$Record.Venue__c}))&amp;&amp;
+OR(ISNEW(),ISCHANGED({!$Record.Venue__c}))</filterFormula>
+        <object>Booking_Form__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

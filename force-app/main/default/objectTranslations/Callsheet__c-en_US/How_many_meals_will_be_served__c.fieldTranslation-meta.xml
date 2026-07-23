@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- How many meals will be served to the artist and crew --></help>
+    <label><!-- How many meals will be served ? --></label>
+    <name>How_many_meals_will_be_served__c</name>
+</CustomFieldTranslation>

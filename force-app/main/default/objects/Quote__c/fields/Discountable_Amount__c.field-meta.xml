@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Discountable_Amount__c</fullName>
+    <description>The sum of discountable line items</description>
+    <label>Discountable Amount</label>
+    <summarizedField>Quote_Line_Item__c.Total_Price__c</summarizedField>
+    <summaryFilterItems>
+        <field>Quote_Line_Item__c.Include_in_discount__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Quote_Line_Item__c.Quote__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

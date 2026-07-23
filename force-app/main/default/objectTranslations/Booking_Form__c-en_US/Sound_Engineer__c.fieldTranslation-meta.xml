@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Sound Engineer --></label>
+    <lookupFilter>
+        <errorMessage><!-- You must select a Technical Contact as a Sound Engineer --></errorMessage>
+    </lookupFilter>
+    <name>Sound_Engineer__c</name>
+    <relationshipLabel><!-- Booking Forms (Sound Engineer) --></relationshipLabel>
+</CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- This is an indication of what the fee should be. The actual fee is taken from the Peformance Fee currency field and rolled up to the booking form --></help>
+    <label><!-- PerformanceFeeFormula --></label>
+    <name>PerformanceFeeFormula__c</name>
+</CustomFieldTranslation>

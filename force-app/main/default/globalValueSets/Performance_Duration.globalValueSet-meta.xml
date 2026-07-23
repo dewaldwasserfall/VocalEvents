@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>1 x 60 min</fullName>
+        <default>false</default>
+        <label>1 x 60 min</label>
+    </customValue>
+    <customValue>
+        <fullName>1 x 80 min</fullName>
+        <default>true</default>
+        <label>1 x 80 min</label>
+    </customValue>
+    <customValue>
+        <fullName>1 x 85 min</fullName>
+        <default>false</default>
+        <label>1 x 85 min</label>
+    </customValue>
+    <customValue>
+        <fullName>1 x 90 min</fullName>
+        <default>false</default>
+        <label>1 x 90 min</label>
+    </customValue>
+    <customValue>
+        <fullName>2 x 30 min</fullName>
+        <default>false</default>
+        <label>2 x 30 min</label>
+    </customValue>
+    <customValue>
+        <fullName>2 x 40 min</fullName>
+        <default>false</default>
+        <label>2 x 40 min</label>
+    </customValue>
+    <customValue>
+        <fullName>Half Dag</fullName>
+        <default>false</default>
+        <label>Half Dag</label>
+    </customValue>
+    <customValue>
+        <fullName>Vol Dag</fullName>
+        <default>false</default>
+        <label>Vol Dag</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <masterLabel>Performance Duration</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

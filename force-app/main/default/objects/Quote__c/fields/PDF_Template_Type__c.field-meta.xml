@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PDF_Template_Type__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    NOT Include_Technical_fee__c &amp;&amp; NOT Include_Extras__c, &quot;Simple&quot;,
+    IF(
+        Include_Technical_fee__c &amp;&amp; NOT Include_Extras__c, &quot;Technical&quot;,
+        IF(
+            NOT Include_Technical_fee__c &amp;&amp; Include_Extras__c, &quot;Extras&quot;,
+            &quot;Complex&quot;
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>PDF Template Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

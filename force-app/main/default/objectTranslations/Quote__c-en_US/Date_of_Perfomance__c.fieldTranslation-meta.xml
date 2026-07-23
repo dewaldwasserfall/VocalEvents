@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- This can be filled in during the quick quote stage to automatically transfer to the Quick Booking form flow --></help>
+    <label><!-- Date of Perfomance --></label>
+    <name>Date_of_Perfomance__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technical_1_500_people__c</fullName>
+    <inlineHelpText>The amount this artist charges for technical if the audience is 1-500 people</inlineHelpText>
+    <label>Technical (1 - 500 people)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

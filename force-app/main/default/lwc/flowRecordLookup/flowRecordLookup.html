@@ -1,0 +1,132 @@
+<template>
+  <div class="slds-form-element">
+    <label class="slds-form-element__label" if:true={label}>
+      <template if:true={required}>
+        <abbr class="slds-required" title="required">*</abbr>
+      </template>
+      {label}
+    </label>
+    <div class="slds-form-element__control">
+      <template if:false={hasSelection}>
+        <div class="slds-combobox_container">
+          <div
+            class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click"
+          >
+            <div
+              class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
+              role="none"
+            >
+              <input
+                type="text"
+                class="slds-input slds-combobox__input"
+                placeholder={placeholder}
+                value={searchTerm}
+                oninput={handleInputChange}
+              />
+              <template if:true={isSearching}>
+                <lightning-spinner
+                  alternative-text="Searching"
+                  size="x-small"
+                  class="slds-input__icon slds-input__icon_right"
+                ></lightning-spinner>
+              </template>
+            </div>
+            <template if:true={showDropdown}>
+              <div
+                class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid"
+                role="listbox"
+              >
+                <template if:true={hasResults}>
+                  <ul
+                    class="slds-listbox slds-listbox_vertical"
+                    role="presentation"
+                  >
+                    <template for:each={computedResults} for:item="result">
+                      <li
+                        key={result.key}
+                        role="presentation"
+                        class="slds-listbox__item"
+                      >
+                        <div
+                          class="slds-media slds-listbox__option slds-listbox__option_entity"
+                          role="option"
+                          data-id={result.id}
+                          onclick={handleSelect}
+                        >
+                          <span class="slds-media__body">
+                            <span
+                              class="slds-listbox__option-text slds-listbox__option-text_entity"
+                              >{result.title}</span
+                            >
+                            <template if:true={result.subtitle}>
+                              <span
+                                class="slds-listbox__option-meta slds-listbox__option-meta_entity"
+                                >{result.subtitle}</span
+                              >
+                            </template>
+                          </span>
+                        </div>
+                      </li>
+                    </template>
+                  </ul>
+                </template>
+                <template if:true={showNoResults}>
+                  <div class="slds-p-around_small slds-text-color_weak">
+                    No matching records found.
+                  </div>
+                </template>
+                <template if:true={showCreateOption}>
+                  <ul
+                    class="slds-listbox slds-listbox_vertical"
+                    role="presentation"
+                  >
+                    <li role="presentation" class="slds-listbox__item">
+                      <div
+                        class="slds-media slds-listbox__option slds-listbox__option_entity"
+                        role="option"
+                        onclick={handleCreateNew}
+                      >
+                        <span
+                          class="slds-media__figure slds-listbox__option-icon"
+                        >
+                          <lightning-icon
+                            icon-name="utility:add"
+                            size="x-small"
+                          ></lightning-icon>
+                        </span>
+                        <span class="slds-media__body">
+                          <span
+                            class="slds-listbox__option-text slds-listbox__option-text_entity"
+                            >{createNewOptionLabel}</span
+                          >
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+                </template>
+              </div>
+            </template>
+          </div>
+        </div>
+      </template>
+      <template if:true={hasSelection}>
+        <span class="slds-pill">
+          <span class="slds-pill__label">{pillLabel}</span>
+          <span
+            class="slds-icon_container slds-pill__remove"
+            onclick={handleClearSelection}
+            title="Remove"
+          >
+            <lightning-icon
+              icon-name="utility:close"
+              size="x-small"
+            ></lightning-icon>
+          </span>
+        </span>
+      </template>
+    </div>
+    <template if:true={errorMessage}>
+      <div class="slds-form-element__help">{errorMessage}</div>
+    </template>
+  </div>
+</template>

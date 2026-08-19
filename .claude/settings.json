@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/dewaldwasserfall/Desktop/Code/vocalevents-sfdc/force-app/main/default/lwc/flowRecordLookup)",
+      "Bash(npx eslint *)",
+      "Bash(npx prettier *)",
+      "Bash(git checkout *)",
+      "Bash(npx sfdx-lwc-jest *)"
+    ],
+    "additionalDirectories": [
+      "/Users/dewaldwasserfall/Desktop/Code/vocalevents-sfdc/force-app/main/default/lwc"
+    ]
+  }
+}

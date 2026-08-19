@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Flow Record Lookup</masterLabel>
+    <description
+  >Generic record search/select component for Screen Flows. Configure the object, search fields, display fields, an optional scoping filter, and the access level to query under.</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property
+        name="label"
+        type="String"
+        label="Field Label"
+        default="Search"
+        description="Label shown above the search input"
+        role="inputOnly"
+      />
+            <property
+        name="placeholder"
+        type="String"
+        label="Placeholder Text"
+        default="Start typing to search..."
+        role="inputOnly"
+      />
+            <property
+        name="objectApiName"
+        type="String"
+        label="Object API Name"
+        description="API name of the object to search, e.g. Venue__c"
+        role="inputOnly"
+      />
+            <property
+        name="searchFields"
+        type="String"
+        label="Search Fields"
+        description="Comma-separated API names of fields to search against, e.g. Name,Town__c"
+        role="inputOnly"
+      />
+            <property
+        name="displayFields"
+        type="String"
+        label="Display Fields"
+        description="Comma-separated API names of fields to show in each result. The first field is used as the title, e.g. Name,Address__Street__s,Town__c"
+        role="inputOnly"
+      />
+            <property
+        name="filterField"
+        type="String"
+        label="Filter Field (optional)"
+        description="API name of a field to scope every search by, e.g. Organisation__c"
+        role="inputOnly"
+      />
+            <property
+        name="filterValue"
+        type="String"
+        label="Filter Value (optional)"
+        description="Value the Filter Field must equal - usually bound to a Flow variable, e.g. {!varBookingForm.Organisation__c}"
+        role="inputOnly"
+      />
+            <property
+        name="accessLevel"
+        type="String"
+        label="Access Level"
+        datasource="User Mode,System Mode"
+        default="User Mode"
+        description="User Mode respects the running user's sharing and field-level access. System Mode bypasses both, e.g. for portal users who can't otherwise see the object - use only with a scoping Filter Field."
+        role="inputOnly"
+      />
+            <property
+        name="minSearchLength"
+        type="Integer"
+        label="Minimum Characters to Search"
+        default="2"
+        role="inputOnly"
+      />
+            <property
+        name="maxResults"
+        type="Integer"
+        label="Maximum Results"
+        default="10"
+        role="inputOnly"
+      />
+            <property
+        name="required"
+        type="Boolean"
+        label="Required"
+        default="false"
+        role="inputOnly"
+      />
+            <property
+        name="allowCreate"
+        type="Boolean"
+        label="Allow Create New"
+        default="false"
+        description="When enabled, shows a 'Create new' option in the results so the user can indicate they want to create a record instead of picking an existing one. The component does not create the record itself - branch on Request New Record in the Flow and create it there. Leave off anywhere users shouldn't be able to add new records, e.g. some portal contexts."
+        role="inputOnly"
+      />
+            <property
+        name="createLabelPrefix"
+        type="String"
+        label="Create New Label Prefix"
+        default="Create new"
+        description="Text shown before the typed search term in the create-new option, e.g. 'Create new' produces Create new &quot;Cape Town&quot;. Only used when Allow Create New is on."
+        role="inputOnly"
+      />
+            <property
+        name="selectedRecordId"
+        type="String"
+        label="Selected Record Id"
+        description="Id of the record the user selected"
+        role="outputOnly"
+      />
+            <property
+        name="selectedRecordLabel"
+        type="String"
+        label="Selected Record Label"
+        description="Title text of the record the user selected"
+        role="outputOnly"
+      />
+            <property
+        name="searchTerm"
+        type="String"
+        label="Raw Search Text"
+        description="The text the user typed - useful for creating a new record when nothing matched"
+        role="outputOnly"
+      />
+            <property
+        name="requestNewRecord"
+        type="Boolean"
+        label="Request New Record"
+        description="True when the user chose 'Create new' instead of selecting an existing record. Only ever true when Allow Create New is on."
+        role="outputOnly"
+      />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

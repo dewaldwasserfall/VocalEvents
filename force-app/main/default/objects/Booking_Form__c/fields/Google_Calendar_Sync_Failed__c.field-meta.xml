@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Google_Calendar_Sync_Failed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description
+  >True when the last Google Calendar sync attempt failed. Mirrors Google_Calendar_Sync_Error__c as a checkbox because Long Text Area fields can&apos;t be filtered in a SOQL WHERE clause, so this is what the failing-bookings rollup and reports filter on.</description>
+    <externalId>false</externalId>
+    <label>Google Calendar Sync Failed</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

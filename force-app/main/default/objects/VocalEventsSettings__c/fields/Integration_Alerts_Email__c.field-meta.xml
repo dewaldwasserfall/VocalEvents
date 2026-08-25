@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integration_Alerts_Email__c</fullName>
+    <description
+  >Where to send alerts when an external integration (e.g. Google Calendar sync) fails. Left blank in source — set the live value via Setup after deploy.</description>
+    <label>Integration Alerts Email</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Email</type>
+</CustomField>

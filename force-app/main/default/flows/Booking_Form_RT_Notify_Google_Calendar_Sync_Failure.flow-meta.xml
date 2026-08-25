@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description
+    >Alerts Vocal Events that a Booking Form failed to sync to its Artist&apos;s Google Calendar</description>
+        <name>Email_Google_Calendar_Sync_Failure</name>
+        <label>Email Google Calendar Sync Failure</label>
+        <locationX>176</locationX>
+        <locationY>216</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference
+        >$Setup.VocalEventsSettings__c.Integration_Alerts_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>info@vocalevents.co.za</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>fmSyncFailureSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>ttSyncFailureBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description
+    >Skip the email (rather than fail the record save) when nobody has configured an alerts address yet</description>
+        <name>Is_Alerts_Email_Configured</name>
+        <label>Is Alerts Email Configured</label>
+        <locationX>176</locationX>
+        <locationY>108</locationY>
+        <defaultConnectorLabel>Not configured</defaultConnectorLabel>
+        <rules>
+            <name>Alerts_Email_Configured</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference
+        >$Setup.VocalEventsSettings__c.Integration_Alerts_Email__c</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference
+        >Email_Google_Calendar_Sync_Failure</targetReference>
+            </connector>
+            <label>Alerts Email Configured</label>
+        </rules>
+    </decisions>
+    <description
+  >Emails VocalEventsSettings__c.Integration_Alerts_Email__c whenever a Booking Form&apos;s Google Calendar sync flips to failing (Google_Calendar_Sync_Failed__c becomes true), so a failure gets noticed and addressed quickly instead of sitting silently on the record. (Triggers on the checkbox, not the Long Text Area error field directly - Flow entry formulas can&apos;t reference Long Text Area fields. Skips sending, rather than failing the save, if Integration_Alerts_Email__c hasn&apos;t been set up yet - an emailSimple action with zero recipients hard-fails the triggering DML.)</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>fmSyncFailureSubject</name>
+        <dataType>String</dataType>
+        <expression
+    >&quot;Google Calendar sync failed - &quot; &amp; {!$Record.Name} &amp; &quot; (&quot; &amp; {!$Record.Artist__r.Name} &amp; &quot;)&quot;</expression>
+    </formulas>
+    <interviewLabel
+  >Booking Form - RT - Notify Google Calendar Sync Failure {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Booking Form - RT - Notify Google Calendar Sync Failure</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_Alerts_Email_Configured</targetReference>
+        </connector>
+        <filterFormula>AND(
+ISCHANGED({!$Record.Google_Calendar_Sync_Failed__c}),
+{!$Record.Google_Calendar_Sync_Failed__c})</filterFormula>
+        <object>Booking_Form__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>ttSyncFailureBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text
+    >&lt;p&gt;A Booking Form failed to sync to its Artist&apos;s Google Calendar.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Artist:&lt;/strong&gt; {!$Record.Artist__r.Name}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Town:&lt;/strong&gt; {!$Record.Town_Name__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Stage:&lt;/strong&gt; {!$Record.Stage__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Error:&lt;/strong&gt; {!$Record.Google_Calendar_Sync_Error__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://vocalevents.lightning.force.com/{!$Record.Id}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;https://vocalevents.lightning.force.com/{!$Record.Id}&lt;/a&gt;&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

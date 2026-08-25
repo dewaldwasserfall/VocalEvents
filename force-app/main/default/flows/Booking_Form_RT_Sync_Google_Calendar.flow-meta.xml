@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description
+    >Queues a Google Calendar sync for this Booking Form (create/update the all-day event, or delete it if Cancelled). The actual callout happens later in its own async transaction.</description>
+        <name>Sync_to_Google_Calendar</name>
+        <label>Sync to Google Calendar</label>
+        <locationX>176</locationX>
+        <locationY>216</locationY>
+        <actionName>GoogleCalendarSyncAction</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>bookingFormIds</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>GoogleCalendarSyncAction</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description
+  >Creates/updates/deletes the Booking Form&apos;s event on the Artist&apos;s Google Calendar: New booking -&gt; &quot;{Town} - TBC&quot;, Confirmed/Completed -&gt; &quot;{Town}&quot;, Cancelled -&gt; event deleted. Also re-syncs if Town, Date of Performance, End Date, or Artist changes later.</description>
+    <environments>Default</environments>
+    <interviewLabel
+  >Booking Form - RT - Sync Google Calendar {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Booking Form - RT - Sync Google Calendar</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Sync_to_Google_Calendar</targetReference>
+        </connector>
+        <filterFormula>OR(
+ISNEW(),
+ISCHANGED({!$Record.Stage__c}),
+ISCHANGED({!$Record.Town_or_City__c}),
+ISCHANGED({!$Record.Date_of_Performance__c}),
+ISCHANGED({!$Record.End_Date__c}),
+ISCHANGED({!$Record.Artist__c}))</filterFormula>
+        <object>Booking_Form__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

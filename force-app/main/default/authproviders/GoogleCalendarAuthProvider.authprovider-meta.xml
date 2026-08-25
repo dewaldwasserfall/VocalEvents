@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <!-- access_type=offline is what actually makes Google issue a refresh_token at all, and
+         prompt=consent forces the consent screen every time so one is reliably re-issued even on
+         a re-authorization - without both of these, principals would authenticate but Salesforce
+         would only ever get a short-lived access token. Confirmed necessary by hand in UAT. -->
+    <authorizeUrl
+  >https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&amp;prompt=consent</authorizeUrl>
+    <!-- The Client Id is not a secret (it's public in the browser during consent) - safe to
+         commit, and shared across UAT/Production/etc: one Google Cloud OAuth Client, one redirect
+         URI added per org's My Domain. -->
+    <consumerKey
+  >1034022198380-2jjkssvqgtdpd9tqgtf94rm0mqelj8q7.apps.googleusercontent.com</consumerKey>
+    <!-- consumerSecret is intentionally not a real value in source - Salesforce never returns the
+         real secret on retrieve either way (it comes back masked). Set the live Client Secret via
+         Setup > Auth. Providers > Google Calendar Auth Provider, per org, after deploy. -->
+    <consumerSecret>PLACEHOLDER-SET-IN-SETUP-AFTER-DEPLOY</consumerSecret>
+    <!-- openid/email/profile are required for Salesforce's OpenIdConnect auth provider to
+         complete its own identity/userinfo handshake - calendar.events alone isn't enough, even
+         though it's the only scope actually used against the Calendar API. Confirmed by hand in
+         UAT. -->
+    <defaultScopes
+  >openid email profile https://www.googleapis.com/auth/calendar.events</defaultScopes>
+    <friendlyName>Google Calendar Auth Provider</friendlyName>
+    <idTokenIssuer>https://accounts.google.com</idTokenIssuer>
+    <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>
+    <isPkceEnabled>false</isPkceEnabled>
+    <providerType>OpenIdConnect</providerType>
+    <requireMfa>false</requireMfa>
+    <sendAccessTokenInHeader>false</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>true</sendClientCredentialsInHeader>
+    <sendSecretInApis>false</sendSecretInApis>
+    <tokenUrl>https://oauth2.googleapis.com/token</tokenUrl>
+    <userInfoUrl>https://openidconnect.googleapis.com/v1/userinfo</userInfoUrl>
+</AuthProvider>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Google_Calendar_Status__c</fullName>
+    <description
+  >At-a-glance Google Calendar sync status for this artist, used on the sync dashboard.</description>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(Google_Calendar_Id__c), &quot;Not Configured&quot;,
+IF(ISNULL(Google_Calendar_Last_Synced__c), &quot;Never Synced&quot;,
+IF(Google_Calendar_Failing_Bookings__c &gt; 0, &quot;Sync Failing&quot;,
+&quot;Connected&quot;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Google Calendar Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
